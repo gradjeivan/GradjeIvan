@@ -1,0 +1,140 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>matrice.a</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">matrice.a</div>
+		<div class="opispredmeta">function archive</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod">tigcclib.h | <a href="matrice-tipovi.h">matrice-tipovi.h</a> | <a href="matrice.htm">matrice.h</a></div>
+	
+	<div class="glavnidiv">
+	
+	<div class="paragraf">
+		Posto u C-u ne postoje gotove funkcije i tipovi kojima se definisu matrice, u okviru ove arhive imamo upravo to.</br>
+		Tipovi promenljivih kojima se sluzimo da opisemo matrice su definisani u headeru matrice.h, dok su funkcije za rad sa njima date u okviru fajla matrice.c. Za koriscenje funkcija iz arhive potrebno je da ona bude ukljucena, zajedno sa header fajlom u C projekat.
+	</div>
+	<hr/>
+	<div class="paragraf">
+		<h2>Pregled tipova</h2>
+		Tipovi promenljivih za matrice su strukture koje sadrze minimum podataka koji je opisuju, a to su: dimenzije i elementi.<br/>
+		Dimenzije su: broj vrsta i broj kolona. Elementi matrice su dati u jednodimenzionalnom nizu, u kome su upisani vrsta po vrsta.
+		<br/>
+		Trenutno postoje definisana dva tipa matrica: Matrica i MatricaGT. Matrica je matrica u opstem smislu, bez pravila o rasporedu elemenata unutar nje. MatricaGT je gornja trougaona matrica, kvadratna matrica sa elementima razlicitim od nule samo u gornjem trouglu, ukljucujuci i njenu dijagonalu.
+	</div>
+	
+	<div class="tabelafun">
+	<table class="tabelafunkcija">
+	<tr><td><a href="">Matrica</a></td>
+		<td></td></tr>
+	<tr><td><a href="">MatricaGT</a></td>
+		<td></td></tr>
+	</table>
+	</div><!tabelafun>
+	<hr/>
+	
+	<h2>Pregled funkcija</h2>
+	<div class="tabelafun">
+	
+	<h3>Konstruktori / destruktori promenljivih</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">Nova0Matrica</a></td>
+		<td>rezervise memoriju za promenljivu tipa Matrica i vraca pokazivac na nju</td></tr>
+	<tr><td><a href="">NovaTMatrica</a></td>
+		<td>rezervise memoriju za promenljivu tipa MatricaGT i vraca pokazivac na nju</td></tr>
+	<tr><td><a href="">M_brisi</a></td>
+		<td>oslobadja rezervisanu memoriju za promenljivu tipa Matrica (brise promenljivu)</td></tr>
+	</table>
+	
+	<h3>Osobine matrica</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">brel_Tmatrice</a></td>
+		<td>daje ukupan broj elemenata u gornjem trouglu, uklj. i dijagonalu</td>
+	</tr>	
+	</table>
+	
+	<h3>Transformacije matrica</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">NovaTransp_M</a></td>
+		<td>vraca novu, transponovanu matricu od unete matrice</td></tr>
+	<tr><td><a href="">GTMuM</a></td>
+		<td>vraca promenljivu tipa GTM na osnovu unete tipa M</td></tr>
+	</table>
+	
+	<h3>Dobijanje elementa matrice</h3>
+	<div class="paragraf info">
+		U sledecim funkcijama vazi da uneti indeksi [i,j] (indeksi koji su ulazni podaci) krecu od 1 , a indeksi koje funkcije vracaju krecu od 0.
+	</div>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">eM</a></td>
+		<td>vraca pokazivac na vrednost elementa [i,j] matrice</td></tr>
+	<tr><td><a href="">eGTM</a></td>
+		<td>vraca pokazivac na vrednost elementa [i,j] gornje trougaone matrice</td></tr>
+	<tr><td><a href="">ieM</a></td>
+		<td>vraca indeks elementa[i,j] matrice[nxm] kao u jednodimenzionalnom C-nizu</td></tr>
+	<tr><td><a href="">ieGTM</a></td>
+		<td>vraca indeks elementa[i,j] gornje trougaone matrice[nxn] kao u jednodimenzionalnom C-nizu (MatricaGT->M)</td></tr>
+	</table>
+	
+	<h3>Operacije nad matricama</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">mnozi_M</a></td>
+		<td>vraca novu matricu[nxm] kao proizvod mnozenja dve matrice A[nxp] i B[pxm]</td></tr>
+	<tr><td><a href="">mnozi_M_skalarom</a></td>
+		<td>mnozi svaki element unete matrice unetim skalarom (ne pravi novu matricu)</td></tr>
+	<tr><td><a href="">mnozi_GTM_M</a></td>	
+		<td>mnozenje gornje trougaone matrice [nxn] i matrice [nxm]</td></tr>
+	<tr><td><a href="">matrici_dodeli_vr_druge</a></td>	
+		<td>matrica kojoj se dodeljuje vrednost mora da vec ima rezervisanu memoriju</td></tr>
+	<tr><td><a href="">InverznaMatrica</a></td>	
+		<td>vraca novu, inverznu matricu od unete matrice (tipa Matrica)</td></tr>
+	</table>
+	
+	<h3>Operacije nad vrstama i kolonama matrica</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">Izbaci_VrKol_IzMat</a></td>
+		<td>vraca novu matricu dobijenu izbacivanjem zadatih vrsta i/ili kolona iz zadate matrice (obe tipa Matrica)</td></tr>
+	<tr><td><a href="">Izbaci_VrKol_IzMatGT</a></td>
+		<td>vraca novu matricu dobijenu izbacivanjem zadatih vrsta i/ili kolona iz zadate matrice (obe tipa MatricaGT)</td></tr>
+	<tr><td><a href="">Mat_Zameni_Vr_ili_Kol</a></td>
+		<td>zamena samo vrsta:vk=0, ili samo kolona:vk=1,...; nema za obe dimenzije istovremeno</td></tr>
+	<tr><td><a href="">Mat_LinKombinuj_vk</a></td>
+		<td>zamenjuje vrstu/kolonu unete matrice zadatom linearnom kombinacijom njenih vrsta/kolona</td></tr>
+	</table>
+	
+	<h3>Stampa i izvoz</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">IzveziMatricu</a></td>
+		<td>zadatu matricu cuva u TI formatu matrice, sa zadatim imenom</td></tr>
+	<tr><td><a href="">IzveziMatricuGT</a></td>
+		<td>zadatu matricu cuva u TI formatu matrice, sa zadatim imenom (koristi IzveziMatricu)</td></tr>
+	<tr><td><a href="">stampajGTM</a></td>
+		<td>za debug, najprostija stampa matrice u formi (i,j)=vrednost elementa matrice</td></tr>
+	<tr><td><a href="">stampajT</a></td>
+		<td>za debug, najprostija stampa matrice u formi (i,j)=vrednost elementa matrice</td></tr>
+		</table>
+	
+	<h3>Funkcije i tipovi za unutrasnju upotrebu</h3>
+	<table class="tabelafunkcija">
+	<tr><td><a href="">Matrica_u_Matrix</a></td>
+		<td></td></tr>
+	<tr><td><a href="">Matrix_u_Matrica</a></td>
+		<td></td></tr>
+	<tr><td><a href="">Matrix_nova</a></td>
+		<td></td></tr>
+	<tr><td><a href="">MatrixInversion</a></td>	
+		<td></td></tr>
+	</table>
+	
+	</div><!tabelafun>
+	</div><!glavnidiv>
+	
+	
+</body>
+</html>

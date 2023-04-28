@@ -1,0 +1,198 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>ParamCrt</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">ParamCrt</div>
+		<div class="opispredmeta">type</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod"><a href="geometrija-tipovi.htm">geometrija-tipovi.h</a></div>
+	
+	<div class="glavnidiv">
+	<div class="paragraf">
+		Parametri crtanja su svi oni parametri potrebni za graficko prikazivanje unetih tacaka i duzi u zadatom okviru za crtanje na ekranu, u zadatom koordinatnom sistemu i pri zadatoj razmeri - faktoru zumiranja.</br>
+		Pritom treba imati na umu da:
+		<ul>
+		<li>tacke i duzi su definisane svojim stvarnim dimenzijama,</li>
+		<li>okvir za crtanje je zadat u pikselima, relativno u odnosu na koordinatni sistem ekrana</li>
+	</div>
+		
+	<div class="paragraf">
+		Princip rada je prikazan na sledecoj semi:
+	</div>
+	
+	<div class="primer">
+	<img class="primer-slika" src="Parametri crtanja.png">
+	<div style="float:left; padding-left:5px;">
+		Ekran kalkulatora:
+		<ol>
+		<li>sirina ekrana - LCD_WIDTH</br>160px na TI-89, 240px na TI-92 Plus i V200</li>
+		<li>visina ekrana - LCD_HEIGHT</br>100px na TI-89, 128px na TI-92 Plus i V200</li>
+		</ol>
+		Crtanje:
+		<ol start=3>
+		<li>crtez - okvir za crtanje</li>
+		<li>gabarit - obuhvata ceo model</li>
+		<li>ceo model - svi uneti elementi</br> 
+			<ol type="a">
+			<li>vidljiv deo modela</li>
+			<li>nevidljiv deo modela</li>
+			</ol>
+		</li>
+		</ol>
+	</div>
+	<div style="clear:both"></div>
+	</div><!primer>
+	
+	<div class="paragraf">
+		<b>Crtez</b> - pravougaonik koji predstavlja prostor na ekranu predvidjen za crtanje - zadat u pikselima [px]
+	</div>
+	<div class="paragraf">
+		<b>Gabarit</b> - pravougaonik koji obuhvata ceo model, zadat u stvarnim jedinicama
+		<ul>
+        <li>Gabaritom su obuhvaceni i model i grid</li>
+        <li>Na gabarit primenjujemo "distorziju" koordinata:</br>
+			<ul>
+            <li>moguca je logaritamska razmera za pojedine ose</li>
+            <li>preko ovakvog gabarita (logaritmovanog) moguce je primeniti i forsiranu razmeru x/y koordinata: promenom X-dimenzije gabarita.</li>
+			</ul>
+		</li>
+		</ul>
+	</div>
+	<div class="paragraf">
+		<b>Okvir</b> - pravougaonik koji obuhvata samo deo modela koji ce da se crta
+		<ol>
+        <li>Prvo CENTRIRAN, sto znaci da:
+			<ul>
+			<li>okvir prvo obuhvata ceo gabarit,</li>
+			<li>odnos strana mu je isti kao crtezu</br>
+			(prosiruje se ona strana gde ostane prazan prostor u crtezu -         jedna dimenzija okvira odgovara dimenziji gabarita - onoj koja ima manji odnos sa svojom dimenzijom crteza(ekrana))</li>
+			</ul>
+		<li>Zatim ZUMIRAN koeficijentom -zum-</li>
+		</ol>
+	</div>
+	<div class="paragraf">
+			Jos par pravila:
+			<ul>
+			<li>Svi pravougaonici su zadati sa konvencijom:</br>
+				[ pravac:X(0)-Y(1) ] [ min(0)-max(1) ]
+			</li>
+				
+			<li>Koordinatni poceci za okvir i gabarit se na pocetku poklapaju,</li>
+			<li>Okvir je uvek zadat kao centriran,</br>
+				POMERANJE OKVIRA se vrsi pri transformaciji koordinata, a velicina pomeranja je zadata u [px]</li>
+			<li>Transformaciju [stvarnih] koordinata u k.s.crteza [px] dobijamo pomocu formule:</br>xcrt[px]=</li>
+			</ul>
+	</div>
+	
+	<div class="tabelafun">
+	<b>ParamCrt</b></br>
+	<table class="tabelafunkcija">
+	<tr> <td class="imefunkcije" id=".crt">.crt
+	</td><td class="tipprom">float[2][2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">coskovi vidljivog crteza u [px]
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".raz">.raz
+	</td><td class="tipprom">float
+	</td><td class="kodprom">
+	</td><td class="opisprom">razmera stvarnih jedinica u odnosu na rezoluciju
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".razxy">.razxy
+	</td><td class="tipprom">float
+	</td><td class="kodprom">
+	</td><td class="opisprom">forsiraj razmeru x/y jedinica po x i y osi
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".osnovalog">.osnovalog
+	</td><td class="tipprom">float[2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">osnove logaritamske razmere za x i y osu (0 za linearnu razmeru)
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".gab">.gab
+	</td><td class="tipprom">float[2][2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">gabarit celog modela u stvarnim dimenzijama</br>
+							odredjuju ga unete tacke, ali i uneti grid (ako je podesen da se vidi)</br>
+							videti <a href="azuriranje_gabarita.htm">azuriranje_gabarita</a>
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".okv">.okv
+	</td><td class="tipprom">float[2][2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">okvir za crtanje, zadat u [px]
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".zum">.zum
+	</td><td class="tipprom">float
+	</td><td class="kodprom">
+	</td><td class="opisprom">zum koeficijent,
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".dok">.dok
+	</td><td class="tipprom">float[2][2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">vektor pomeranja okvira na zumiranom modelu
+	</td></tr>
+	<tr> <td class="imefunkcije" id=".vid">.vid
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">vidljivost pojedinih elemenata crteza (1 ili 0)
+	</td></tr>
+	<tr> <td class="imefunkcije">.font
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">font pojedinih oznaka na crtezu
+	</td></tr>
+	<tr> <td class="imefunkcije">.grid
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">definicija mreze pomocnih tacaka
+	</td></tr>
+	<tr> <td class="imefunkcije">.rezim
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">rezim crtanja:A_NORMAL(za crtanje),A_XOR(za brisanje-nema azuriranja)</br>ideja je bila da se ovo iskoristi za brisanje, ali nigde nije korisceno, svuda je u upotrebi A_NORMAL
+	</td></tr>
+	</table>
+	
+	<div class="tabelafun">
+	<b>ParamCrt.grid</b></br>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	<tr> <td class="imefunkcije">
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	</table>	
+	</div><! tabelafun>
+	</div><! glavnidiv>
+</body>
+</html>

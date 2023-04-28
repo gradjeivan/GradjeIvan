@@ -1,0 +1,184 @@
+:root {
+	--body-bojapozadine: #111333;
+	--body-bojateksta: #EEEEEE;
+	--kod-bojapozadine: #222333;
+	--kod-bojateksta: #777777;
+}
+
+body {
+	min-width:500px;
+	max-width:800px;
+	margin:5px auto auto auto;/*centriraj po horizontali*/
+	padding-left:5px;
+	padding-right:5px;
+	
+	/*fallback*/
+	background-color:#111333;
+	color:#EEEEEE;
+	/*
+	background-color:var(--body-bojapozadine);
+	color:var(--body-bojateksta);*/
+	
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica;
+}
+
+hr {
+	/*clear:both;*/
+}
+
+h1 {
+	font-size:145%;
+	margin-bottom:.5em;
+}
+
+a {
+	color: #888FFF;
+	text-decoration:none;
+}
+a:visited {
+	color: #995599;
+}
+a:hover {
+	color: #00FFFF;
+}
+
+div.zaglavljestrane {
+	width:100%;
+	background-color:#222333;
+	border-bottom: 1px solid gray;
+	clear:both;
+	padding:5px;
+}
+
+div.predmetstrane {
+	float:left;
+	font-size:145%;
+}
+
+div.opispredmeta {
+	float:right;
+	font-size:80%;
+}
+
+div.zavisiod {
+	float:right;
+	clear:both;
+	width:70%;
+	text-align:right;
+	margin: 0 auto 20px auto;
+	padding:0;
+	font-size: 90%;
+	font-style: italic;
+}
+div.glavnidiv{
+	padding:5px;
+}
+
+div.paragraf {
+	clear:both;
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}
+
+div.info {
+	font-size: 90%;
+	font-style: italic;
+}
+
+.primer {
+	/*display:block;*/
+}
+
+.primer img {
+	float:left;
+	width:400px;
+	background-color:#FFFFFF;
+	margin:10px 30px 10px 0;
+}
+
+img.TIcapt {
+	width:300px;
+}
+
+.spisak_primera li {
+	cursor:help;
+	padding-bottom:5px;
+}
+.spisak_primera li:hover {
+	text-style:underline;
+}
+
+.primer_opis {
+	clear:both;
+	margin-bottom:5px;
+}
+.primer_objasnjenje {
+	padding-left:50px;
+}
+.primer_objasnjenje li{
+	padding-bottom:5px;
+}
+
+pre {
+	font-family: monospace;
+}
+
+div.kod-pre {
+	padding-left:50px; 
+}
+p.kod {
+	/*fallback*/
+	background-color: #222333;
+	color: #777777;
+	/*
+	background-color:var(--kod-bojapozadine);
+	color:var(--kod-bojateksta);*/
+}
+div.tabelafun {
+	margin-top:20px;
+}
+table.tabelafunkcija {
+	width:100%;
+	margin-top:5px;
+	border: 1px solid gray;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+table.tabelafunkcija td {
+	border-top: 1px solid #222222;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	font-size: 90%;
+	vertical-align:top;
+}
+
+table.tabelafunkcija td.imefunkcije {
+	padding-right:10px;
+	font-size: 110%;/*u odnosu na font u ostatku celije*/
+	font-family:monospace;
+	font-style: bold;
+}
+table.tabelafunkcija td.tipprom {
+	font-family:monospace;
+}
+table.tabelafunkcija td.opisprom {
+	font-style:oblique;
+}
+
+table.tabelafunkcija a {
+	color: #FFFFFF;
+	text-decoration:none;
+}
+
+table.tabelafunkcija a:visited {
+	color: #888888;
+	/*font-size: 120%; /*u odnosu na font u ostatku tabele*/
+}
+
+table.tabelafunkcija a:hover {
+	color: #555555;
+	/*font-size: 120%; /*u odnosu na font u ostatku tabele*/
+}
+	

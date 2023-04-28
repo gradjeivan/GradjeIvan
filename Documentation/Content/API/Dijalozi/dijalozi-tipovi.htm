@@ -1,0 +1,329 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>dijalozi-tipovi.h</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">dijalozi-tipovi.h</div>
+		<div class="opispredmeta">header</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod">nezavisan header</div>
+	
+	<div class="glavnidiv">
+	<div class="paragraf">
+		<b><i>dijalozi-tipovi.h</i></b> je header u kome su definisani tipovi promenljivih kroz koje se definisu dijalozi i tablice.
+	</div>
+	<div class="paragraf">
+		Tipovi su odvojeni su u poseban header, nezavisno od headera sa funkcijama (<a href="../Dijalozi/dijalozi-h.htm">dijalozi.h</a>).</br> Funkcije iz bilo kojih drugih header-a ovako mogu da generisu podatke za dijaloge i tabele kroz ove strukturne tipove. Izbegava se nepotrebno dupliranje funkcija i samim tim trosenje potrebne memorije, posto su dijalozi i tabelarni prikaz deo svake slozenije aplikacije i celina iz kojih se ona sastoji (header-a).</br>
+		Ideja je da se prikaz dijaloga (pomocu funkcija iz <a href="../Dijalozi/dijalozi-h.htm">dijalozi.h</a>) vrsi sa sto je moguce viseg nivoa programa, idealno iz glavne funkcije. Tada se <a href="../Dijalozi/dijalozi-h.htm">dijalozi.h</a> upotrebljava minimalno, dok u nizim nivoima (headerima) ponavljamo samo definicije tipova. 
+	</div>
+	
+	<div class="paragraf">
+		
+	</div>
+	
+	<div class="tabelafun">
+	<hr/>
+	<h3>Pregled tipova</h3>
+	<!/br> 
+	
+	<!h4></h4>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije"><a href="#PodZaUpis">PodZaUpis</a>
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="#PodZaDlg">PodZaDlg</a>
+	</td><td class="tipprom">structure 
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="#FrmtTabKol">FrmtTabKol</a>
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">formatiranje jedne kolone tablice
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="#FrmtTabCrt">FrmtTabCrt</a>
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">parametri koji odredjuju kako ce da se iscrta tablica
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="#FrmtTab">FrmtTab</a>
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="#OperacijaTab">OperacijaTab</a>
+	</td><td class="tipprom">structure
+	</td><td class="kodprom">
+	</td><td class="opisprom">parametri koji opisuju jednu operaciju nad elementima tablice
+	</td></tr>
+	
+	</table>
+	<hr/>
+	<h3>Tipovi za definisanje dijaloga</h3>
+	<h4 id="PodZaUpis">PodZaUpis</h4>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">prom
+	</td><td class="tipprom">void *
+	</td><td class="kodprom">
+	</td><td class="opisprom">pokazivac na promenljivu (ili niz) koji se upisuje
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">bajtova
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">broj bajtova koji zauzima promenljiva na koju pokazuje <i>prom</i>
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">kom
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">broj ovakvih promenljivih u nizu
+	</td></tr>
+	
+	</table>
+
+	<h4 id="PodZaDlg">PodZaDlg</h4>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">brsl
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">broj slova koji se upisuje
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">unos
+	</td><td class="tipprom">void *
+	</td><td class="kodprom">
+	</td><td class="opisprom">pokazivac na promenljivu koja se unosi kroz dijalog
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">upit
+	</td><td class="tipprom">const char *
+	</td><td class="kodprom">
+	</td><td class="opisprom">tekst kojim se pita za unos promenljive
+	</td></tr>
+	
+	</table>
+	
+	<hr/>
+	<h3>Tipovi za definisanje tablica</h3>
+	<h4 id="FrmtTabKol">FrmtTabKol</h4>
+	<div class="paragraf">
+		Tip koji sluzi za formatiranje jedne kolone tablice.</br>
+		Koristi se u okviru tipa <a href="#FrmtTab">FrmtTab</a> (za definisanje tablice), gde je za svaku kolonu dat po jedan element niza promenljivih tipa FrmtTabKol* . 
+	</div>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">frmt
+	</td><td class="tipprom">char *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">zaglavlje
+	</td><td class="tipprom">char *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	</table>
+	
+	
+	<h4 id="FrmtTab">FrmtTab</h4>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">n
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">duzina 
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">m
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">el
+	</td><td class="tipprom">void *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">fk
+	</td><td class="tipprom"><a href="#FrmtTabKol">FrmtTabKol</a> *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">pmem
+	</td><td class="tipprom">char *
+	</td><td class="kodprom">
+	</td><td class="opisprom">formatni niz - string koji sadrzi tip za svaki element niza *el (prvih n elemenata niza)</br>
+           podrazumeva se da je raspored tipova prom. za svaku vrstu isti.</br>
+           Dozvoljeni tipovi su: f,i,I,c,..</br>
+           IZBACIO SAM TIP STRING-usporava-mogao bi samo ako je uvek iste duzine u svakom elementu strukture</br>
+           Primer: *pmem[]="ffcif" => struktura sadrzi {float,float,char,unsigned short,float}
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">w
+	</td><td class="tipprom">WINDOW *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	</table>
+
+<h4 id="FrmtTabCrt">FrmtTabCrt</h4>
+	<div class="paragraf">
+		Parametri koji odredjuju kako ce da se iscrta tablica.</br>
+		
+	</div>
+	
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">fnt
+	</td><td class="tipprom">char
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">sysfnt
+	</td><td class="tipprom">char
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">dx
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">dy
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">padx
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">pady
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">xpoc
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">ypoc
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">zagl
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">sirine
+	</td><td class="tipprom">short *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">maxvrsta
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">memi
+	</td><td class="tipprom">short *
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">mem1
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	</table>
+	
+	<h4 id="OperacijaTab">OperacijaTab</h4>
+	<div class="paragraf">
+	Parametri koji opisuju jednu operaciju nad elementima tablice.
+	</div>
+	
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije">promena
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">tip promene: zamena, izbacivanje, sabiranje.... definisano u enum
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">vk
+	</td><td class="tipprom">short
+	</td><td class="kodprom">
+	</td><td class="opisprom">dimenzija na koju se odnosi promena
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">oprtr
+	</td><td class="tipprom">short[2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">operatori=indeksi vrsta/kolona koji su predmet promene
+	</td></tr>
+		
+	<tr> <td class="imefunkcije">koef
+	</td><td class="tipprom">short[2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">koeficijenti za lin.kombinaciju
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">izvoz
+	</td><td class="tipprom">char[8]
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije">sledeca
+	</td><td class="tipprom"><a href="#OperacijaTab">OperacijaTab</a>[2]
+	</td><td class="kodprom">
+	</td><td class="opisprom">pokazivac na sledecu u povezanoj listi
+	</td></tr>
+	
+	</table>
+	
+	
+	</div><! tabelafun>
+	</div><! glavnidiv>
+</body>
+</html>

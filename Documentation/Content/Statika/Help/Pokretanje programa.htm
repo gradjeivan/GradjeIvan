@@ -1,0 +1,136 @@
+<html>
+<head>
+	<Title>Pokretanje programa</Title>
+
+	<link  href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	<script src='../../gradjeivan.js'></script>	
+	<script>var ids=["pr1","pr2","pr3","pr4","pr5"];//spisak TI screenshotova za primer</script>
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">Pokretanje programa</div>
+		<div class="opispredmeta">uputstvo</div>
+		<div style="clear:both"></div>
+	</div>
+		
+	<div class="glavnidiv">
+	
+	<div class="paragraf">
+		Pokretanje programa GradjeIvan Statika se vrsi pozivanjem glavnog izvrsnog fajla <i>gristat.asm</i>, bilo biranjem iz <i>var-link</i>-a ili direktnim pozivanjem sa komandne linije.<br/>
+		Ukoliko se <i>gristat.asm</i> ne nalazi u aktuelnom folderu, tada se mora dati cela putanja do fajla. 
+	</div>	
+	<hr/>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr1'])">|  Primer 1  |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr2'])">|  Primer 2  |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr3'])">|  Primer 3  |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr4'])">|  Primer 4  |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr5'])">|  Primer 5  |</div>
+	<div style="clear:both"></div>
+	<hr/>
+	<div id="pr1" class="primer">
+		<br/>
+		<h3>Primer 1</h3>
+		<div class="primer_opis">
+			 aktuelni folder (<i>main</i>) je isti kao i folder koji sadrzi izvrsni fajl <i>gristat.asm</i><br/>
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_POKRETANJE_1.gif">
+		<br/>Izabracemo <i>gristat.asm</i> iz <i>var-link</i>-a:
+		<br/>
+		<ul class="primer_objasnjenje">
+		<li>sa <i>home</i> ekrana izabrati <i>var-link</i> kombinacijom tastera [2nd]+[-]</li>
+		<li>na spisku varijabli (fajlova) pronaci fajl <i>gristat.asm</i></li>
+		<li>pritiskom na [enter] iskopirati tekst <i>gristat(</i> na komandnu liniju <i>home</i> ekrana</li>
+		<li>zatvoriti zagradu</li>
+		<li>pritiskom na [enter] program se pokrece</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info"></div>
+	</div>
+	
+	<div id="pr2" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 2</h3>
+		<div class="primer_opis">
+			 aktuelni folder (<i>main</i>) je isti kao i folder koji sadrzi izvrsni fajl <i>gristat.asm</i><br/>
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_POKRETANJE_2.gif">
+		<br/>Pozvacemo <i>gristat.asm</i> direktno sa komandne linije:
+		<br/>
+		<ul class="primer_objasnjenje">
+		<li>na <i>home</i> ekranu, u komandnoj liniji pozvati fajl <i>gristat.asm</i> sa <i>gristat()</i></li>
+		<li>pritiskom na [enter] program se pokrece</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info"></div>
+	</div><!primer>
+	
+	<div id="pr3" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 3</h3>
+		<div class="primer_opis">
+			fajl <i>gristat.asm</i> se nalazi u folderu <i>gri</i>, dok je aktuelni folder <i>main</i>. pozivanje bez putanje ne daje nikakav rezultat.
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_POKRETANJE_3.gif">
+		<br/>Pozvacemo <i>gristat.asm</i> direktno sa komandne linije:
+		<br/>
+		<ul>
+		<li>na <i>home</i> ekranu, u komandnoj liniji pozvati fajl <i>gristat.asm</i> sa <i>gristat()</i></li>
+		<li>pritisak na [enter] ne daje nikakav rezultat</li>
+		</ul>
+		<br/>Proveravamo lokaciju <i>gristat.asm</i> koriscenjem <i>var-link</i>-a.
+		<br/>Menjamo aktuelni folder <i>main</i> u folder <i>gri</i> koji sadrzi <i>gristat.asm</i>  
+		<br/>
+		<ul>
+		<li>na <i>home</i> ekranu, u komandnoj liniji pozvati fajl <i>gristat.asm</i> sa <i>gristat()</i></li>
+		<li>pritiskom na [enter] program se pokrece</li>
+		</ul>
+		<div class="paragraf info">
+			
+		</div>
+		<div class="paragraf info"></div>
+	</div><!primer>
+		
+	<div id="pr4" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 4</h3>
+		<div class="primer_opis">
+			fajl <i>gristat.asm</i> se nalazi u folderu <i>gri</i>, dok je aktuelni folder <i>statika</i>.
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_POKRETANJE_4.gif">
+		<ul class="primer_objasnjenje">
+		<li>na <i>home</i> ekranu, u komandnoj liniji pozvati fajl <i>gristat.asm</i> sa <i>gri\gristat()</i></li>
+		<li>pritiskom na [enter] program se pokrece</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info">Na kraju primera, aktuelni folder je i dalje folder <i>statika</i></div>
+	</div><!primer>
+		
+	<div id="pr5" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 5</h3>
+		<div class="primer_opis">
+			fajl <i>gristat.asm</i> se nalazi u folderu <i>gri</i>, dok je aktuelni folder <i>statika</i>.
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_POKRETANJE_5.gif">
+		<ul class="primer_objasnjenje">
+		<li>na <i>home</i> ekranu, u komandnoj liniji pozvati fajl <i>gristat.asm</i> sa <i>gristat()</i></li>
+		<li>pritiskom na [enter] program se pokrece</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info">Prilikom biranja fajla iz <i>var-link</i>-a, cela putanja se kopira na komandnu liniju</div>
+	</div><!primer>
+	
+	<hr/>
+	<div class="paragraf">
+		Ovde je bitno uociti da se program moze pozvati iz bilo kog "aktuelnog" foldera, ali radni folder aplikacije je uvek aktuelni folder, a ne onaj u kome se nalazi fajl <i>gristat.asm</i>. Znacaj radnog foldera je u tome sto se prilikom izlaska iz aplikacije, uneti podaci cuvaju unutar tog foldera. Ukoliko iz nekog razloga korisnik promeni aktuelni folder i ponovo pokrene aplikaciju, ona najverovatnije nece prikazati poslednje uneti model.<br/>
+		Vise o ovome u uputstvu <i><a href="Operacije sa fajlovima.htm">Operacije sa fajlovima</a></i>.
+	</div>
+	<div class="paragraf info">
+		Postoji jos brzi nacin pokretanja TI programa, koriscenjem TI-Basic programa <i>main\kbdprgm1</i>.<br/>
+		Programi nazvani prema sablonu <i>main\kbdprgm</i>X, gde je X={0,1,2,3,4,5,6}, se pozivaju kombinacijom tastera <b>[dijamant]+X</b>, poput speeddial-a na telefonu.
+		Uz mala <u onclick="">podesavanja</u>, na ovaj nacin se iz bilo kog foldera najbrze moze pozvati neki TI program.
+	</div>
+	
+	</div><!glavnidiv>
+</body>
+</html>

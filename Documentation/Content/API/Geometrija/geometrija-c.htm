@@ -1,0 +1,270 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>geometrija-c.h</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">geometrija-c.h</div>
+		<div class="opispredmeta">function archive</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod"><a href="geometrija-tipovi.htm">geometrija&#8209;tipovi.h</a></div>
+	
+	<div class="glavnidiv">
+	<div class="paragraf">
+		<i>geometrija-c.h</i> je header u kome su spakovane funkcije potrebne za definisanje, promenu i brisanje tacaka i duzi, definisanih tipovima u <a href="geometrija-tipovi.htm">geometrija-tipovi.h</a>, kao i za transformaciju njihovih stvarnih koordinata u koordinate aktuelnog koordinatnog sistema za crtanje na ekranu.
+	</div>
+	<div class="paragraf info">
+		Prikazane funkcije nisu strogo ogranicene na TIGCC, zato header u imenu ima nastavak -c . Funkcije koje su ogranicene na TIGCC (crtanje) su smestene u <a href="geometrija-ti.htm">geometrija-ti.h</a> . 
+	</div>
+		
+	<div class="tabelafun">
+	<hr/>
+	<h3>Globalne promenljive</h3>
+	Preko globalnih promenljivih se iz svakog nivoa programa moze pristupiti aktuelnom modelu i parametrima crtanja.</br></br>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije" id="pc">pc
+	</td><td class="tipprom"><a href="ParamCrt.htm">ParamCrt</a> *
+	</td><td class="kodprom">
+	</td><td class="opisprom">pokazivac na aktuelne parametre crtanja
+	</td></tr>
+	<tr> <td class="imefunkcije" id="kt">kt
+	</td><td class="tipprom"><a href="exttck.htm">exttck</a> *
+	</td><td class="kodprom">
+	</td><td class="opisprom">ekstremne tacke aktuelnog modela</br>
+								preko ove promenljive pristupamo svim unetim tackama.
+	</td></tr>
+	<tr> <td class="imefunkcije" id="kd">kd
+	</td><td class="tipprom"><a href="extduz.htm">extduz</a> *
+	</td><td class="kodprom">
+	</td><td class="opisprom">ekstremne duzi aktuelnog modela</br>
+								preko ove promenljive pristupamo svim unetim duzima.
+	</td></tr>
+	<tr> <td class="imefunkcije" id="nsc">nsc
+	</td><td class="tipprom"><a href="../../Statika/Nosac.htm">Nosac</a> *
+	</td><td class="kodprom">
+	</td><td class="opisprom">pokazivac na aktuelni staticki model
+	</td></tr>
+	</table>
+	</div><! tabelafun>
+	
+	<div class="paragraf">
+		
+	</div>
+	
+	<div class="tabelafun">
+	<hr/>
+	<h3>Pregled funkcija</h3>
+	U nastavku je dat pregled funkcija, grubo grupisanih prema objektu svog delovanja:</br> 
+	<h4>Parametri crtanja</h4>
+	<table class="tabelafunkcija">
+	<tr>
+		<td><a href="">azuriraj_param_crtanja</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">azuriraj_okvir</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">RazmeraXY_upasovano</a>
+	</td>	<td>podesava pc.razxy tako da se crtez upasuje (stretch to fit)
+	</td></tr>
+		<td><a href="">xy_crt</a>
+	</td>	<td>transformacija koordinata na ekranske
+	</td></tr>
+	</table>
+	
+	<h4>Tacka</h4>
+	<table class="tabelafunkcija">
+	<tr>
+		<td><a href="">nuliraj_exttck</a>
+	</td>	<td>
+	</td></tr>	
+		<td><a href="">tacku_dodaj</a>
+	</td>	<td>Prihvata podatke o tacki:id,xy, proverava da li je vec uneta i dodaje je u skup tacaka *kt ako nije
+	</td></tr>
+		<td><a href="">tacku_izbrisi</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">tacku_nadji</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">tacku_nadji_po_id</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">tacaka_ukupno</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">tacki_trazi_duplikat</a>
+	</td>	<td>Proverava zadatu tacku da li je vec uneta i vraca pokazivac na duplikat ili NULL ako nije vec uneta 
+	</td></tr>
+		<td><a href="">tacka_vidljiva</a>
+	</td>	<td>Proverava da li je zadata tacka vidljiva na crtezu
+	</td></tr>
+		<td><a href="">pres_tacku_dodaj</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">pres_tacke_osl_mem</a>
+	</td>	<td>
+	</td></tr>
+	</table>
+	
+	<h4>Duz</h4>
+	<table class="tabelafunkcija">
+	<tr>
+		<td><a href="">nuliraj_extduz</a>
+	</td>	<td>Postavlja pokazivace na prvu i poslednju duz, kd[0-2][0-2], na NULL
+	</td></tr>
+		<td><a href="">duz_prazna</a>
+	</td>	<td>Rezervise memoriju za 1 promenljivu tipa Duz
+	</td></tr>
+		<td><a href="">duz_dodaj</a>
+	</td>	<td>Prihvata podatke o duzi:id,ik; pokazivac na prethodnu, i vraca pokazivac na poslednje unetu, tj. ovu tacku
+	</td></tr>
+		<td><a href="">duz_izbrisi</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">duz_trazi_duplikat</a>
+	</td>	<td>Funkcija treba da vrati pokazivac na tacku sa istim koordinatama kao u xy[2], ili NULL ako nema takve tacke
+	</td></tr>
+		<td><a href="">duz_proveri_preseke</a>
+	</td>	<td>Nalazenje svih preseka zadate duzi sa ostalim duzima
+	</td></tr>
+		<td><a href="">duzi_podeli_u_prestac</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">duz_nadji</a>
+	</td>	<td>Ova funkcija treba da vrati pokazivac na duz koja je u sortiranju -i- udaljena za brmesta od zadate duzi d
+	</td></tr>
+		<td><a href="">duz_nadji_id</a>
+	</td>	<td>Ova funkcija treba da vrati pokazivac na duz sa zadatim id, ili NULL ako ne postoji
+	</td></tr>
+		<td><a href="">duzi_ukupno</a>
+	</td>	<td>
+	</td></tr>
+	</table>
+	
+	<h4>Tacka i Duz</h4>
+	<table class="tabelafunkcija">
+		<td><a href="">tacka_duzi_ldgd</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">ugao_duzi_u_tacki</a>
+	</td>	<td>vraca ugao koji zaklapa duz sa horizontalom kroz zadatu krajnju tacku
+	</td></tr>
+		<td><a href="">duz_sledeca</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">jednaki</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">duz_tg</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">duz_alfa</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">l_d</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">t_pripada_d</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">t_je_teme_d</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">u2PI</a>
+	</td>	<td>svodi ugao a [rad] unutar granica 2*PI
+	</td></tr>
+		<td><a href="">UnutarUgla</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">UnesenGrid</a>
+	</td>	<td>vraca 1 ako postoji upotrebljiv grid, makar i samo u jednom pravcu
+	</td></tr>
+		<td><a href="">UslovZaUnosDuzi</a>
+	</td>	<td>moze uz uslov ( da moraju da postoje 2 unete tacke)
+               ili( da postoji upotrebljiv grid i pritom ukljucen) 
+	</td></tr>
+	</table>
+	<h4>Memorija</h4>
+	<table class="tabelafunkcija">
+	<tr>
+		<td><a href="">sacuvaj_tacke</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">procitaj_tacke</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">InicParamCrtanja</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">Oslobodi_memoriju</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">Oslobodi_memoriju_tacaka</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">Oslobodi_memoriju_duzi</a>
+	</td>	<td>
+	</td></tr>
+	</table>
+	
+	<h4>Izvedene funkcije - skracenice</h4>
+	<table class="tabelafunkcija">
+		<td><a href="">promeni10</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">x_</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">y_</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">id_</a>
+	</td>	<td>
+	</td></tr>
+	
+		<td><a href="">d_i</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">d_k</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">x_i</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">x_k</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">y_i</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">y_k</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">id_i</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">id_k</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href="">t_u_T_stv</a>
+	</td>	<td>
+	</td></tr>
+		<td><a href=""></a>
+	</td>	<td>
+	</td></tr>
+		<td><a href=""></a>
+	</td>	<td>
+	</td></tr>
+	
+	</table>	
+	</div><! tabelafun>
+	</div><! glavnidiv>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<LINK REL = "stylesheet" TYPE = "text/css" HREF = "../../gradjeivan.css"> 
+ 
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>ID kalkulatora (function archive)</Title>
+</HEAD>
+<BODY>
+
+<div class="zaglavljestrane">
+	<div class="predmetstrane">ID kalkulatora.a</div>
+	<div class="opispredmeta">function archive</div>
+	<div style="clear:both"></div>
+</div>
+<div class="zavisiod">Ova arhiva ne zavisi ni od jedne druge arhive</div>
+
+<p>
+Jedina funkcija u ovoj arhivi je ona koja proverava da li je kalkulator na kome se izvrsava program na listi dozvoljenih kalkulatora. Ova provera se vrsi preko jedinstvenog serijskog broja svakog kalkulatora.<br/>
+Takodje, ova funkcija proverava i da li je izvrsavanje programa na virtuelnom TI.</p>
+<p>
+Lista dozvoljenih kalkulatora (serijski brojevi, VTI) je u preprocesorskom delu, sto znaci da za svaku zeljenu kombinaciju dozvoljenih kalkulatora mora da se build-uje posebna arhiva <ID kalkulatora.a> iz source koda. Na ovaj nacin sam hteo da na neki nacin sakrijem tu listu od krajnjeg korisnika.<br/>
+Neki programi nisu planirani da budu dostupni za koriscenje svima (razvojne verzije npr.) pa se na ovaj nacin stitim od slucajnog sirenja pogresnih verzija.
+</p>
+<p class="kod">BOOL registrovan_kalkulator(char **serbr, BOOL izlaz);</p>
+<p>
+Dve varijante koriscenja:<br/>
+<ul>
+<li>izlaz=FALSE, serbr=NULL<br/>kada nas van funkcije, tj. u glavnom programu ne interesuje serijski broj kalkulatora na kome se program izvrsava</li>
+<li>izlaz=TRUE, serbr=char**<br/>ako se zeli serijski br. van funkcije, tada je 1.argument string, tj. char** koji sadrzi ovaj serijski broj.<br/><b>Paznja:<b/> Ovo znaci da mora i u glavnom programu na kraju da se oslobodi memorija na koju pokazuje!</li>
+</p>
+
+<p>
+Lista biblioteka koje koriste <ID kalkulatora.a> :
+<ul>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ul>
+</p>
+
+</BODY>
+</HTML>

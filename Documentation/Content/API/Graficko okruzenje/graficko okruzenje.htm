@@ -1,0 +1,109 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>graficko okruzenje.h</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">graficko okruzenje.h</div>
+		<div class="opispredmeta">function header/archive</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod"></div>
+	
+	<div class="glavnidiv">
+	<div class="paragraf">
+		<b>Graficko okruzenje</b> je header u kome se definisu dimenzije elemenata grafickog prikaza, kao i font koji ce se koristiti za obavestenja koja program prikazuje.<br/>
+	</div>	
+	<div class="paragraf">
+		Kako bi postojala mogucnost da imamo razlicita podesavanja za razlicite prikaze, ovde se uvodi strukturni tip promenljive <a href="#RasporedRazmaci">RasporedRazmaci</a>. Tako se za svaki razliciti prikaz moze koristiti promenljiva ovog tipa. Kao podrazumevane vrednosti koriste se one definisane u jedinoj funkciji koja se nalazi u okviru ovog headera, <a href="InicRasporedRazmaci.htm">InicRasporedRazmaci</a>, a koja se obavezno koristi pri inicijalizaciji promenljive, jer su svi podaci unutar nje neophodni za formiranje grafickog prikaza. Na ovaj nacin se obezbedjuje izvrsavanje programa bez greske usled nedefinisanih dimenzija.
+	</div>
+	<div class="paragraf">
+		Na sledecoj slici prikazani su osnovni elementi grafickog okruzenja. Crvenim strelicama su prikazane dimenzije ekrana. Crnim strelicama su prikazane dimenzije koje je moguce menjati u okviru <a href="#RasporedRazmaci">RasporedRazmaci</a> promenljive. Sve ostale dimenzije su na ovaj nacin takodje odredjene.
+		
+	</div>
+	<br/>
+	<div class="primer">
+	<img class="primer-slika" src="Graficko okruzenje.png">
+	<div style="float:left">
+		<ol>
+		<li>LCD_WIDTH</br>160px na TI-89, 240px na TI-92 Plus i V200</li>
+		<li>LCD_HEIGHT</br>100px na TI-89, 128px na TI-92 Plus i V200</li>
+		<li>statusna linija</li>
+		<li>menu</li>
+		<li>lista desno</br>info. o izabranom elementu sa radnog prikaza</li>
+		<li>komandna linija</br>uputstva o koriscenju izabrane naredbe</li>
+		<li>radni prikaz</br>graficki prikaz ili prikaz proracuna</li>
+		</ol>
+	</div>
+	<div style="clear:both"></div>
+	</div><!primer>
+	<br/><hr/>
+	
+	<div class="tabelafun">
+	
+	<h3 id="RasporedRazmaci">RasporedRazmaci</h3>
+	
+	<div class="paragraf">
+		U okviru promenljivih ovog strukturnog tipa se cuvaju podesavanja za dimenzije elemenata grafickog okruzenja aplikacija, prema semi na slici gore.<br/>
+	</div>
+	
+	<h4>RasporedRazmaci.</h4>
+	<table class="tabelafunkcija">
+	<tr>
+			<td><a href="">menuL</a>
+	</td>	<td>short
+	</td>	<td>horizontalna dimenzija gornjeg menija
+	</td></tr>
+		<td><a href="">menuH</a>
+	</td>	<td>short
+	</td>	<td>vertikalna dimenzija gornjeg menija
+	</td></tr>
+		<td><a href="">lista_desno</a>
+	</td>	<td>short
+	</td>	<td>horizontalna dimenzija liste na desnoj strani
+	</td></tr>
+		<td><a href="">komand</a>
+	</td>	<td>short
+	</td>	<td>vertikalna dimenzija komandne linije
+	</td></tr>
+		<td><a href="">komandL</a>
+	</td>	<td>short
+	</td>	<td>horizontalna dimenzija komandne linije
+	</td></tr>
+		<td><a href="">vel_oznake</a>
+	</td>	<td>short
+	</td>	<td>
+	</td></tr>
+		<td><a href="">odalji_tekst</a>
+	</td>	<td>short
+	</td>	<td>
+	</td></tr>
+	</td></tr>
+		<td><a href="">font_infoa</a>
+	</td>	<td>short
+	</td>	<td>velicina TI fonta koji se koristi (enum Fonts {F_4x6, F_6x8, F_8x10} iz TIGCC dokumentacije)
+	</td></tr>
+		<td><a href="">razmak_teksta</a>
+	</td>	<td>short
+	</td>	<td>
+	</td></tr>
+		<td><a href="">info3H</a>
+	</td>	<td>short
+	</td>	<td>
+	</td></tr>
+		<td><a href="">info3_koord_tacke</a>
+	</td>	<td>float
+	</td>	<td>
+	</td></tr>
+		
+	
+	</table>	
+	</div><!tabelafun>
+	
+	</div><!>
+</body>
+</html>

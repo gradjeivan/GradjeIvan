@@ -1,0 +1,88 @@
+<html>
+<head>
+	<link href="../gradjeivan.css" type="text/css" rel="stylesheet">
+	<Title>GradjeIvan API</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">GradjeIvan API</div>
+		<div class="opispredmeta">API</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="glavnidiv">
+	
+	<div class="paragraf">
+		Osnovni programski kod koji stoji iza svih GradjeIvan aplikacija se nalazi unutar GradjeIvan API-ja. Ovaj skup funkcijskih arhiva(*.a) i dinamickih biblioteka(*.dll) se bavi osnovnim elementima svake od aplikacija, kao sto su: graficko okruzenje, meniji, dijalozi, crtanje duzi i tacaka u datoj razmeri, matrice, tabelarni prikaz, itd.<br/>
+		<br/>
+		Princip rada se moze uporediti sa nekom vrstom primitivnog objektno orijentisanog programiranja: svaka arhiva sadrzi tipove i funkcije koji se bave jednom grupom srodnih elemenata aplikacije. "Objekti" se definisu strukturnim tipovima promenljivih, a "metode" funkcijama koje kao objekte svog delovanja imaju promenljive tog tipa. Svi "objekti" istog tipa koji postoje u okviru aplikacije drze se u jedinstvenoj dvostruko povezanoj listi ovih promenljivih, dostupnoj svakoj funkciji kroz globalni pokazivac tog tipa. 
+		<br/><br/>
+		
+		Funkcije karakteristicne za pojedinacne aplikacije se nalaze u odvojenim arhivama ili dinamickim bibliotekama, kako bi bile upotrebljene samo u okviru onih aplikacija kojima su te funkcije neophodne za rad. Tako se npr. u slucaju aplikacije <a href="../Statika/GradjeIvan Statika.htm">GradjeIvan Statika</a> ovakve arhive bave definicijom tipova koji opisuju stapove i dijagrame, njihovim unosom i izmenom, kao i proracunom koji proizilazi iz unetih podataka. Te arhive nisu potrebne za aplikaciju kao sto je npr. <a href="../Linija nivoa/Linija nivoa.htm">Linija nivoa</a>, jer se ona ne bavi tom problematikom. Medjutim osnovne funkcije, poput gore nabrojanih funkcija unutar GradjeIvan API-ja, jesu potrebne, jer kao i vecini aplikacija i njoj su potrebni meniji,dijalozi,tabele,isl.  
+		<br/>
+		Iz izlozenog je jasno da je razumevanje koda GradjeIvan API uslov za razumevanje kompletnog koda bilo koje od GradjeIvan aplikacija.  
+		<br/>
+		<br/>
+		Sav kod je pisan u programskom jeziku C, a uz pomoc <a href="http://tigcc.ticalc.org/">TIGCC SDK</a>, specijalno napravljenog za kalkulatore Texas Instruments. Neke funkcije su potpuno kompatibilne sa GCC kompajlerom, i moguce je ih iskoristiti i za druge platforme. Neke postaju kompatibilne sa GCC uz vrlo malo intervencija. Jedan deo koda je ipak karakteristican samo za TIGCC, sto je uglavnom povezano sa TI grafikom.<br/>
+		Za razvoj i testiranje koriscen je virtuelni kalkulator <a href="http://lpg.ticalc.org/prj_tiemu">TiEmu</a>, sa debugger-om koji je moguce povezati sa <a href="http://tigcc.ticalc.org/">TIGCC SDK</a>. Naravno, finalna testiranja su obavljena na stvarnom kalkulatoru, <a href="https://education.ti.com/en/products/calculators/graphing-calculators/ti-89-titanium">TI-89 Titanium</a>.
+	</div>
+	<div class="paragraf">	
+		<h1>Arhive funkcija</h1>
+		<p>Arhive funkcija su date kao *.a (archived library).<p/>
+		<p>
+		U listi dole date su u redosledu od onih cija je upotreba najopstija, ka slozenijim arhivama. Ove druge (izvedene) koriste neke od ovih prvih, pa je njihovo razumevanje uslov za razumevanje rada i ovih drugih. 
+		</p>
+	</div>
+	
+	<h3>Pregled header-a:</h3>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije"><a href="Standardno/standardno.htm">standardno.a</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="ID kalkulatora/id kalkulatora.htm">id kalkulatora.h</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="Graficko okruzenje/graficko okruzenje.htm">graficko&nbsp;okruzenje.h</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="Dijalozi/dijalozi.htm">dijalozi.h</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="Matrice/matrice.htm">matrice.a</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="Tabela/tabela.htm">tabela.h</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	<tr> <td class="imefunkcije"><a href="Geometrija/geometrija.htm">geometrija.a</a>
+	</td><td class="tipprom">
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+		
+	</table>
+	
+	</div><!glavnidiv>
+
+</body>
+</html>

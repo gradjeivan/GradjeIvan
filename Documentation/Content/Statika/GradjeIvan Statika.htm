@@ -1,0 +1,89 @@
+<html>
+<head>
+	<link href="../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>GradjeIvan Statika</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">GradjeIvan Statika</div>
+		<div class="opispredmeta">TI-89, TI-Voyage application</div>
+		<div style="clear:both"></div>
+	</div>
+	<!div class="zavisiod"><!/div>
+	
+	<div class="glavnidiv">
+	<div class="paragraf">
+	<h3>Opste o aplikaciji</h3>
+		<b><i>GradjeIvan Statika</i></b> je aplikacija za kalkulatore Texas Instruments TI-89 i TI-Voyage, nastala iz zelje autora da sebi olaksa jednolicne proracune vezane za probleme iz oblasti statike.<br/>
+Namena aplikacije nije da da gotova resenja zadataka, vec da bude alat za njihovo resavanje.
+	</div>
+	
+	<div class="paragraf">
+		Svrha ovog uputstva je pre svega da olaksa korisnicima da brzo ovladaju mogucnostima koje aplikacija nudi, kroz prakticne primere i detaljnija objasnjenja za radoznale. Ovo je dato u prvom poglavlju, <a href="GradjeIvan Statika Help.htm">Statika&nbsp;Help</a>.<br/><br/>
+		Posebno poglavlje, <a href="GradjeIvan Statika API.htm">Statika&nbsp;API</a>, je posveceno objasnjenju programskog koda, koji je otvoren za koriscenje i promenu od strane bilo koga zainteresovanog. Postoji jos mnogo problema u oblasti statike koji bi mogli biti predmet ove aplikacije, pa je ovim ostavljena mogucnost nadogradnje. 
+	</div>
+	<hr/>
+	
+	<div class="paragraf">
+	<h3>Sta konkretno ova aplikacija radi?</h3>
+		Proracun:<br/>
+		<ul>
+		<li>matrica transformacija</li>
+		<li>matrica krutosti
+			<ul>
+			<li>u lokalnom ili globalnom koordinatnom sistemu</li>
+			<li>za pojedinacne stapove ili ceo sistem stapova</li>
+			</ul>
+		</li>
+		<li>nepoznatih statickih velicina resavanjem uslovnih jednacina</li>
+		<li>mnozenja povrsina dijagrama Verescaginovim pravilom (sa prikazom proracuna)</li>
+		<li>elasticnih tezina</li>
+		</ul>
+	Aplikacija je pravljena samo za ravanske modele, ne i za prostorne.
+	</div>
+		
+	<div class="paragraf">
+	<h3>Sta ova aplikacija NE radi?</h3>
+		<ul>
+		<li>proracun dijagrama statickih uticaja MTN</li>
+		</ul>
+	</div>
+
+	<div class="paragraf">
+	<h3>Koji su neophodni podaci i kako se unose?</h3>
+	Podaci se unose grafickim putem, ali postoji i mogucnost unosa samih vrednosti.<br/>Za unos grafickim putem se koristi mreza pomocnih tacaka koju korisnik unosi na pocetku, pa se prilikom unosa tacaka izbor svodi na tacke ove mreze, kroz koju se krece uz pomoc strelica na tastaturi kalkulatora.<br/><br/>
+	Podaci koji se unose su:
+	<ul>
+	<li>Informacije o stapovima:<br/>
+		<ul>
+		<li>koordinate krajnjih tacaka</li>
+		<li>materijal (moduo elasticnosti)</li>
+		<li>povrsina poprecnog preseka</li>
+		</ul>
+	</li>
+	<li>Dijagrami uticaja na stapovima</li>
+	</ul>
+	Informacije o stapovima su neophodni podaci. Na osnovu njih dobijaju se matrice transformacije i krutosti. (vidi&nbsp;<a>primer&nbsp;unosa&nbsp;stapova</a>)<br/>
+	Unos dijagrama je neophodan za ostale proracune (vidi&nbsp;<a>primer&nbsp;unosa&nbsp;dijagrama</a>).<br/> 
+	Priroda dijagrama (MTN ili opterecenje) je neodredjena, a zavisi od toga sta korisnik hoce da na osnovu njih izracuna; tako ce komandi za proracun Verescaginovim pravilom biti nepotrebno da zna prirodu unetih dijagrama, komanda za resavanje uslovnih jednacina ce da smatra da je uneti dijagram - dijagram statickih uticaja, a komanda za proracun elasticnih tezina ce unete dijagrame smatrati opterecenjem na stapovima. 
+	</div>
+		
+	<div class="paragraf">
+	<h3>Da li mogu da sacuvam unete i proracunate podatke?</h3>
+	Da.</br>
+	Uneti i proracunati podaci se cuvaju <b>unutar fajlova sa ekstenzijom .gri</b> tako da korisnik moze da izadje iz aplikacije ako zeli da koristi osnovne funkcije kalkulatora, a da se nakon toga vrati na rad u aplikaciji. Za ovu svrhu, aplikacija automatski ucitava poslednje podatke koji su  bili u upotrebi, bilo da su sacuvani u okviru imenovanog fajla ili ne.<br/></br>
+	Proracunate <b>matrice se mogu i pojedinacno izvoziti iz aplikacije</b>, u fabricki format TI matrice, za slucaj da korisnik to zeli. Za ovo je na raspolaganju editor matrica koji je ukljucen u aplikaciju, kojim je moguce i dodatno "doterati"
+ matricu (linearnim kombinovanjem, zamenom ili brisanjem kolona ili vrsta..) pre izvoza.	
+	</div>
+ 
+	<hr/>
+	<div class="paragraf">
+		Detaljnije o svemu je dato u poglavljima u nastavku.
+	</div>
+	
+	</div><! glavnidiv>
+</body>
+</html>

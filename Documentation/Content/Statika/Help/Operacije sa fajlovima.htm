@@ -1,0 +1,114 @@
+<html>
+<head>
+	<Title>Operacije sa fajlovima</Title>
+
+	<link  href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	<script src='../../gradjeivan.js'></script>	
+	<script>var ids=["pr1","pr2","pr3","pr4"];//spisak TI screenshotova za primer</script>
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">Operacije sa fajlovima</div>
+		<div class="opispredmeta">uputstvo</div>
+		<div style="clear:both"></div>
+	</div>
+		
+	<div class="glavnidiv">
+	<div class="paragraf">
+		Podaci o modelu unetom u aplikaciju cuvaju se u fajlovima sa ekstenzijom .GRI.<br/>
+		Fajlovi se u kalkulatoru cuvaju kao i svaka druga TI promenljiva, i za njih vaze ista pravila. Ime fajla se sastoji iz maksimalno 8 znakova, gde prvi znak mora biti slovo. Fajl (promenljiva) moze biti arhiviran ili nearhiviran, sto izmedju ostalog odredjuje i da li je moguca njegova izmena iz aplikacije. (vidi i <a href="Pocetna podesavanja.htm">pocetna podesavanja</a>)  
+	</div>
+	
+	<div class="paragraf">
+		Otvaranje i cuvanje podataka se vrsi kroz prvu opciju u meniju aplikacije, biranjem komandi Otvori, Sacuvaj ili Sacuvaj kao...<br/><br/>
+		U slucaju Otvori ili Sacuvaj kao... prvo se otvara dijalog. U dijalogu se precizira folder i ime fajla koji se otvara/memorise. Ime fajla mora da postuje konvencije o imenu promenljivih za TI kalkulator. Podrazumevani folder je radni folder aplikacije. Data je padajuca lista u kojoj se moze promeniti folder cuvanja/otvaranja fajla (ovim se ne menja i radni folder).  Pritiskom na taster [ENTER] izvrsava se komanda. Tasterom [ESC] komanda se prekida.<br/></br>
+		U slucaju komande Sacuvaj, nema prikaza dijaloga, vec se odmah izvrsava cuvanje trenutno otvorenog fajla unutar njegovog izvornog foldera.<br/><br/>
+		U svakom slucaju, u Info liniji se prikazuje odgovarajuca poruka o izvrsenim promenama.
+	</div>	
+	<hr/>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr1'])">| Primer 1:Otvori |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr2'])">| Primer 2:Sacuvaj kao... |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr3'])">| Primer 3:Sacuvaj |</div>
+	<div style="float:left;" onclick="prikazisamo(ids,['pr4'])">| Primer 4:Arhiviran fajl |</div>
+	<div style="clear:both"></div>
+	<hr/>
+	<div id="pr1" class="primer">
+		<br/>
+		<h3>Primer 1: Otvaranje fajla - komanda Otvori</h3>
+		<div class="primer_opis">
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_FAJL_OTVARANJE.gif">
+		<br/>
+		<ul class="primer_objasnjenje">
+		<li>Postaviti program u <a href="">status cekanja komande</a></li>
+		<li>Iz menija izabrati komandu Otvori</li>
+		<li>Izabrati folder iz prve padajuce liste (Folder)</li>
+		<li>Izabrati fajl iz druge padajuce liste (Variable)</li>
+		<li>pritiskom na [ENTER] otvara se izabrani fajl.</li>
+		<li>Na Info liniji program prikazuje obavestenje, a na statusnoj liniji ime otvorenog fajla</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info">Radni folder se ne menja cak i ako je otvoren fajl iz foldera koji se razlikuje od radnog foldera.</div>
+	</div>
+	<div id="pr2" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 2: Cuvanje novog fajla - komanda Sacuvaj kao...</h3>
+		<div class="primer_opis">
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_FAJL_SACUVAJ_KAO.gif">
+		<br/>
+		<ul class="primer_objasnjenje">
+		<li>Postaviti program u <a href="">status cekanja komande</a></li>
+		<li>Iz menija izabrati komandu Sacuvaj kao...</li>
+		<li>Izabrati folder iz prve padajuce liste (Folder)</li>
+		<li>Izabrati fajl iz druge padajuce liste (Variable)</li>
+		<li>Pritiskom na [ENTER] potvrditi cuvanje</li>
+		<li>Na Info liniji program prikazuje obavestenje, a na statusnoj liniji ime sacuvanog fajla</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info">Radni folder se nije promenio bez obzira na folder u kojem je fajl sacuvan.</div>
+	</div>
+	<div id="pr3" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 3: Cuvanje fajla - komanda Sacuvaj</h3>
+		<div class="primer_opis">
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_FAJL_SACUVAJ.gif">
+		<br/>
+		<ul class="primer_objasnjenje">
+		<li>Postaviti program u <a href="">status cekanja komande</a></li>
+		<li>Iz menija izabrati komandu Sacuvaj</li>
+		<li>Pritiskom na [ENTER] aktuelni fajl se cuva u svom izvornom folderu</li>
+		<li>Na Info liniji program prikazuje obavestenje.</li>
+		</ul>
+		<div style="clear:both"></div>
+		<div class="paragraf info">Radni folder se nije promenio bez obzira na folder u kojem je fajl sacuvan.</div>
+	</div>
+	<div id="pr4" class="primer" style="display:none">
+		<br/>
+		<h3>Primer 4: Cuvanje arhiviranog fajla - neuspesno</h3>
+		<div class="primer_opis">
+		</div>
+		<img class="TIcapt" src="GRI_PRIMER_FAJL_SACUVAJ_NEUSPESNO.gif">
+		<br/>
+		U slucaju da je fajl arhiviran, onda je nemoguce izvrsiti njegovu promenu, sto ukljucuje i primenu komande cuvanja. Razlog za to je taj sto ona funkcionise na principu memorisanja novog fajla sa istim imenom, gde se stari prvo brise.<br/>
+		Da bi se ova komanda mogla koristiti fajl ne sme biti arhiviran.<br/>
+		Vise o arhiviranju fajlova u primeru <a href="Pocetna podesavanja.htm">Pocetna podesavanja</a>.
+		<div style="clear:both"></div>
+		<div class="paragraf info"></div>
+	</div>	
+	<hr/>
+	<div class="paragraf">
+		Ovde je bitno uociti da radni folder aplikacije ostaje isti, bez obzira na folder u kome se nalazi fajl koji smo otvorili ili memorisali. Znacaj radnog foldera je u tome sto se prilikom izlaska iz aplikacije, uneti podaci cuvaju unutar tog foldera, u fajlu sa imenom <i>poslednj.gri</i>.	Kada se aplikacija ponovo otvori, ucitava se model iz tog fajla.
+		<br/>Brzina kojom se prekida rad u aplikaciji, bez brige o kasnijem nastavku rada na istom modelu, olaksava simultani rad u aplikaciji GradjeIvan Statika i ostalim aplikacijama na kalkulatoru. <br/><br/>
+	</div>
+	<div class="paragraf info">
+		Ukoliko se pozove komanda <i>Sacuvaj</i>, a podaci sacuvani u <i>poslednj.gri</i> poticu od modela ucitanog otvaranjem nekog drugog fajla, cuvanje fajla ce biti pokusano pod imenom tog izvornog fajla, a ne pod imenom <i>poslednj.gri</i>.
+	</div>
+	<div class="paragraf info">
+		
+	</div>
+	
+	</div><!glavnidiv>
+</body>
+</html>

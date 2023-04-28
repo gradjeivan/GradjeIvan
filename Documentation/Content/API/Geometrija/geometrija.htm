@@ -1,0 +1,67 @@
+<html>
+<head>
+	<link href="../../gradjeivan.css" type="text/css" rel="stylesheet">
+	
+	<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+	<Title>geometrija.a</Title>
+
+</head>
+<body>
+	<div class="zaglavljestrane">
+		<div class="predmetstrane">geometrija.a</div>
+		<div class="opispredmeta">function archive</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="zavisiod">tigcclib.h | <a href="geometrija-tipovi.htm">geometrija&#8209;tipovi.h </a> | <a href="../../GradjeIvan/gradjeivan-enums.htm">gradjeivan&#8209;enums.h</a> | <a href="geometrija.c">geometrija.c</a> | <a href="geometrija-ti.htm">geometrija&#8209;ti.h</a> | <a href="unosgeom-funkcije.htm">unosgeom&#8209;funkcije.h</a> | <a href="dijalozi-h.htm">dijalozi.h</a> | <a href="dijalozi-tipovi.h">dijalozi&#8209;tipovi.h</a> </div>
+	
+	<div class="glavnidiv">
+	
+	<div class="paragraf">
+		<b>Geometrija.a</b> predstavlja arhivu funkcija potrebnih za definiciju, unos i crtanje tacaka i duzi.
+	</div>
+	
+	<div class="paragraf">
+		Podesavanja za crtanje (granice crteza, razmere, zum...) se cuvaju u promenljivoj tipa <a href="ParamCrt.htm">ParamCrt</a>.<br/> 
+		Kako bi postojala mogucnost lakog pristupa ovoj promenljivoj iz svakog nivoa programa, uvedena je globalna promenljiva <b><a href="geometrija-c.htm#pc">pc</a></b>, pokazivac na promenljivu tipa <a href="ParamCrt.htm">ParamCrt</a>.<br/>
+		Takodje, ovim se moze lako i ostvariti promena svih podesavanja. Ako su drugacija podesavanja za okruzenje sacuvana u drugoj promenljivoj tipa <a href="ParamCrt.htm">ParamCrt</a> , dovoljno je promeniti adresu <b><a href="geometrija-c.htm#pc">pc</a></b> tako da pokazuje na nju i pozvati funkciju za ponovno iscrtavanje grafickog okruzenja, <a href="Crtaj.htm">Crtaj</a> , koja ce automatski koristiti nova podesavanja, jer ce tada <b><a href="geometrija-c.htm#pc">pc</a></b> pokazivati na njih.
+	</div>
+	
+	<div class="tabelafun">
+	<h4>Pregled headera</h4>
+	<table class="tabelafunkcija">
+	
+	<tr> <td class="imefunkcije"><a href="geometrija-tipovi.htm">geometrija&#8209;tipovi.h </a>
+	</td><td class="tipprom"><a href=".htm"></a> 
+	</td><td class="kodprom">
+	</td><td class="opisprom">definicije tipova za predstavljanje tacaka,duzi, i tipa za cuvanje parametara crtanja
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="../../GradjeIvan/gradjeivan-enums.htm">gradjeivan&#8209;enums.h</a>
+	</td><td class="tipprom"><a href=".htm"></a> 
+	</td><td class="kodprom">
+	</td><td class="opisprom">
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="geometrija-c.htm">geometrija&#8209;c.h</a> 
+	</td><td class="tipprom"> 
+	</td><td class="kodprom">
+	</td><td class="opisprom"><b>definisanje</b>, promenu i brisanje tacaka i duzi
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="geometrija-ti.htm">geometrija&#8209;ti.h</a> 
+	</td><td class="tipprom"> 
+	</td><td class="kodprom">
+	</td><td class="opisprom"><b>crtanje</b> tacaka i duzi
+	</td></tr>
+	
+	<tr> <td class="imefunkcije"><a href="unosgeom-funkcije.htm">unosgeom&#8209;funkcije.h</a>
+	</td><td class="tipprom"> 
+	</td><td class="kodprom">
+	</td><td class="opisprom">graficki unos tacaka i duzi
+	</td></tr>
+			
+	</table>	
+	</div><!tabelafun>
+	</div><!glavnidiv>
+</body>
+</html>
