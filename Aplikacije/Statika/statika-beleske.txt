@@ -1,0 +1,8 @@
+<Stap> je tip podatka koji cuva pointere ka duzi, materijalu i tipu poprecnog preseka
+   **Za sortiranje i pristup stapovima koristimo iskljucivo hijerarhiju strukture duzi,
+     jer sam u nju ugradio i jedan void pointer za ove potrebe: Svaka duz ima jeDDan stap i obrnuto.
+   **Materijal i tip poprecnog preseka mogu da se odnose na vise razlicitih stapova.
+     Pamti se redni broj/indeks u nizu unetih materijala (short zauzima manje memorije nego pointer)
+<Materijal> <PoprecniPresek>
+Ova dva niza uredjujem po sledecem principu:
+  realloc-iram memoriju za svaki novi tip pp./materijal. Pamtim pokazivac.

@@ -1,0 +1,1 @@
+#define Iniciraj_glavni_meni _DLL_call (void  ,(HANDLE *),  0)

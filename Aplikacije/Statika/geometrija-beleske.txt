@@ -1,0 +1,75 @@
+--------------------------------------------------------
+TACKA:
+typedef struct tck
+{ char id; //oznaka tacke
+  float xy[2]; //koordinate
+  struct tck *sused[3][2];
+} Tacka;
+
+->sused[i][k]: pokazivac na susednu tacku,
+                 (NULL ako nema suseda u trazenom pravcu)
+              i=0:sort prema x-koordinati, tj. xy[0]
+                1:sort prema y-koordinati, tj. xy[1]
+                2:sort prema id - Ovo cesto koristimo i da bi znali redosled unosenja tacaka
+                 (zna da bude bitno-ne dozvoliti korisniku da sam dodeljuje id-oznake)
+              k=0:ka manjoj vrednosti(pocetku)
+                1:ka vecoj vrednosti(kraju)
+--------------------------------------------------------
+KTAC:
+typedef void* exttck[3][2]
+tip-matrica 3x2 sa void pokazivacima na extr. podatke u pojedinim sortiranjima:
+Vaze indeksi po istom principu kao gore za podatak-Tacka
+
+SRT:
+Kada se trazi u funkciji, oznacava smer kretanja kroz podatke
+Pocetnu tacku za taj smer nalazimo kao [srt[0]][promeni10(srt[1])]
+----------------------------------------------------------------------
+OBJASNJENJE ZA PARAMETRE CRTANJA:
+Crtez-Pravougaonik koji predstavlja prostor na ekranu predvidjen
+      za crtanje -zadat u pikselima [px]
+Gabarit-Pravougaonik koji obuhvata ceo model [zadat u stvarnim jedinicama]
+Okvir-Pravougaonik koji obuhvata samo deo modela koji ce da se crta
+      1)Prvo CENTRIRAN, sto znaci da:
+       -okvir prvo obuhvata ceo gabarit,
+       -odnos strana mu je isti kao crtezu
+       (prosiruje se ona strana gde ostane prazan prostor u crtezu-
+        jedna dimenzija okvira odgovara dimenziji gabarita-
+        onoj koja ima manji odnos sa svojom dimenzijom crteza(ekrana))
+      2)Zatim ZUMIRAN koeficijentom -zum-
+
+ -Okvir i gabarit su u istom koord.sistemu.
+ -Okvir je uvek zadat kao centriran,
+  POMERANJE OKVIRA se vrsi pri transformaciji koordinata,
+  a velicina pomeranja je vec u [px]
+ -Transformaciju [stvarnih]koordinata u k.s.crteza [px]
+  dobijamo pomocu formule:
+                          xcrt[px]=
+
+typedef struct
+{ float crt[2][2];//rezolucija:[pravac:X(0)-Y(1)][min(0)-max(1) u px]
+	//float gab[2][2];//gab(arit) nosaca [stvarne mere]
+	 //Gabarit je vec zadat kroz kt[0-1][0-1]->xy, [pravac:X-Y][min-max]
+	float raz;  //razmera stvarnih jedinica u odnosu na rezoluciju
+	float okv[2][2];//okvir za crtanje [pravac:X(0)-Y(1)][min(0)-max(1)]
+	float zum;   //zum koeficijent
+	float dok[2]; //vektor pomeranja okvira na zumiranom modelu
+} ParamCrt;//parametri crtanja
+
+Pocetne vrednosti:
+zum i razmera na pocetku treba da se zadaju sa istom poc.vrednosti da ne bi imao razliku
+izmedju okvira i ivica crteza dok nije definisana nijedna tacka, a samim tim i gabarit
+. . . . .. . . . . .
+azuriranje_gabarita
+GABARIT odedjuju unete tacke, ali i uneti grid (ako je podesen da se vidi)
+ Prvo cemo odrediti gabarit na osnovu unetih tacaka, a posle uklapamo i grid (ako je zadato da se vidi)
+ Bitno je da su pocetne vrednosti za ivicne tacke gabarita na pocetku programa dve iste tacke, najbolje (0,0)
+
+ Gabarit mora da bude pravougaonik, zato na kraju treba obraditi posebno tackaste i linijske slucajeve:
+ Spec.slucajevi:bez unetih tacaka; sa samo 1 unetom tackom;
+                 sa >=2 unete tacke ali sa jednom istom koord. istom
+
+--------------------------------------------------------------------------
+DUZ:
+__________________________________________________________________________
+FAJL I/O:
+

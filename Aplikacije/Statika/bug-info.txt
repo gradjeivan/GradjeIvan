@@ -1,0 +1,3 @@
+#1: Ne odredjuje tacno oblik dijagrama u zadatku 1 za delta 22(u prostom stapu)
+#2: primer 30 address  error na kraju kad je tokom koriscenja programa birano stamanje K* za S-stap
+#3:

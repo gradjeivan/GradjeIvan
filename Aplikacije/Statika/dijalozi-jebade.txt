@@ -1,0 +1,54 @@
+Po stoti put, dijalozi oduzimaju previse vremena.
+Na primeru Grid_dlg imamo sve za unos kroz tekstualna polja:
+
+short Grid_dlg(short *nx,short *ny,float *dx,float *dy)
+{SetAlphaStatus(FALSE);//Ovde podesavamo da ALPHA bude iskljuceno-unos brojeva
+
+ //OVDE PAZNJA!! Ako ne uparis duzinu zaglavlja sa duzinom sprintovanog teksta imaces resetTI
+ char zaglavlje[22];sprintf(zaglavlje,"Mreza pomocnih tacaka");
+
+ short tpk = 1; //ovo je uneta/pritisnuta tipka
+
+ //ODAVDE PAZNJA NA BROJEVE!!-DUZINE U BAFERU!!
+ /*Ovde su dodeljene duzine stringova u baferu po promenljivama
+   i izgled bafera:
+    nx 2 \0  ....01 2
+    ny 2 \0  ....34 5
+    dx 5 \0  ....67890 1
+    dy 5 \0  ....23456 7
+    duzina celog bafera=17  */
+
+ char *tekst = NULL;if ((bafer_unosteksta(&tekst,17))==0) return 0;
+ HANDLE dlg=H_NULL;if ((novidijalog(&dlg,125,50))==0){free(tekst);return 0;}
+
+ //UPIS POCETNIH VREDNOSTI U POLJA
+ sprintf(tekst,  "%-2d",*nx); sprintf(tekst+3, "%-2d",*ny);
+ sprintf(tekst+6,"%-5f",*dx); sprintf(tekst+12,"%-5f",*dy);
+
+ DialogAddTitle(dlg,zaglavlje,BT_OK,BT_CANCEL);
+ /*ZZNACENJE ULAZNIH VREDNOSTI F.JE DialogAddRequest
+                       x, y,     ,pocetni indeks u baferu
+                                   ,duzina
+                                     ,duzina tekstualnog polja            */
+ DialogAddRequest(dlg,10,15,"nx:",0,2,3);//DialogAddText(dlg,92,15,"[m]");
+ DialogAddRequest(dlg,10,25,"ny:",3,2,3);//DialogAddText(dlg,92,25,"[m]");
+ DialogAddRequest(dlg,53,15,"dx:",6,5,6);DialogAddText(dlg,105,15,"[m]");
+ DialogAddRequest(dlg,53,25,"dy:",12,5,6);DialogAddText(dlg,105,25,"[m]");
+
+ short unetbroj=0;//0 znaci da postoji neka greska pri unosu(nije unet broj)
+ while (unetbroj==0)
+ { while ((tpk != KEY_ENTER) && (tpk != KEY_ESC) && tpk > 0)
+         {	tpk = DialogDo(dlg,CENTER,CENTER,tekst,NULL);   }
+   //prebaci unete podatke iz input bafera u promenljive za izlaz
+   //PAZI!! Kod f.je txtui i txtuf, drugi arg. je pokazivac!!
+                     unetbroj=txtui(tekst,nx);
+     if (unetbroj==1)unetbroj=txtui(tekst+3,ny);
+     if (unetbroj==1)unetbroj=txtuf(tekst+6,dx);
+     if (unetbroj==1)unetbroj=txtuf(tekst+12,dy);
+     if (unetbroj==0)tpk=1;//printf("unetbroj=%d",unetbroj);
+ }
+ //obavezno oslobadjanje dinamicke memorije
+ free(tekst);HeapFree(dlg);
+
+ if (tpk != KEY_ESC) return 1; else return 0;
+}

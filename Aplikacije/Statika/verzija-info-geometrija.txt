@@ -1,0 +1,281 @@
+3.8.1.1 Promene u <geometrija-c.h> vezane za pridruzivanje duzi tacki.
+____________________________________________________________________________________________
+
+3.2.6.5 Dodajem funkciju za ugao alfa, duz sa horizontalom
+3.121 Ovde sam pokusao da napravim da funkcija za podelu duzi vrati i niz duzi, ali mi nesto i nije uspelo
+3.05 **Vratio sam KOEF_TOLERANCIJE na 0.0001 jer funkcija <jednaki> nije dobro radila
+3.03 **Uradio sam unos poprecnog preseka uporedo sa unosom stapa
+       Treba jos testirati!! Uglavnom zezaju indeksi i_pp,..
+     ##CRASH ako se unesu veliki brojevi (6+ cifara) u dijalogu
+     **Preimenovao sam funkciju UslovZaUnosStapova u UslovZaUnosDuzi
+     ** KOEF_TOLERANCIJE sam stavio  da je =DBL_EPSILON (pokazalo se kao greska-ispravljeno u 3.05)
+
+     &&Treba napraviti da nakon unosa tacke kroz dijalog, posle ona bude oznacena,
+       a mod unosa bude prebacen na biranje unetih tacaka (intuitivnije je)
+3.02 Prebacio sam funkciju InfoStepeniSlobode u statika-funkcije.h
+3.01 Prepravio sam IzaberiTacku, (dodao sam uslov u while: &&(tipka!=278))
+     tako da ne mora da se prvo krene strelicom pa da tek onda proradi APPS
+
+3.0 ***********
+     Ubacio sam void pointer u strukturu Duz, koji pokazuje na gredu koju odredjuje
+      Ovo sam uradio kako bih:
+        1)omogucio obostranu vezu izmedju Greda i Duz,
+              a posebno da bih koristio vec sortirane Duzi kao sortiranje za grede
+        2)osigurao da je 1 Duz=1 Greda
+      Ne moze da se koristi Greda * pointer, jer je tip Greda definisan u kasnijem headeru
+   ************
+       **Krupne izmene na funkciji IzaberiTacku
+         Mogucnost unosa nove tacke kroz dijalog pritiskom na CATALOG
+         Nakon ovakvog unosa ceo crtez se osvezava zbog moguce promene gabarita crteza
+
+   #1 Moguce je uneti duz sa istim tackama i i k. Unos_duzi_ekr
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+      **Pri unosenju tacaka kroz dijalog, trebalo bi i da se izvrsi provera
+        da li ta tacka pripada nekom od unetih stapova, da se izvrsi
+        eventualna podela na 2 dela
+
+2.7.1 **Petljam sa IzaberiTacku
+        Dodajem funkciju: < IzaberiIzUnetihTacaka >
+        Sada pri izboru tacaka imam funkcionalan APPS za prebacivanje na/sa grida
+      **Mogucnost dodele pop.preseka duzi je u funkciji Unos_duzi,
+        koju ostavljam ovakvu zbog uglednog primera, a za statiku, f-ja menja ime u Unos_stapa
+2.7
+2.6.7 **Resavanje problema gubitka memorije
+        Izgleda da je uspelo. Ostajala je jedna pres.tacka u memoriji(za svaku duz po jedna)
+      **
+
+2.6.6.1 Izgleda da sam sredio podelu duzi, pa cu preci na sledecu verziju
+      PROMENE u ovoj verziji:
+      Pri proveri preseka nove duzi sa vec unetim duzima,
+       1)prvo pravim niz presecnih tacaka,
+                     tip NizTacaka, funkcije:
+                                             pres_tacku_umetni, pres_tacku_dodaj
+       2)nove tacke se crtaju iz posebne funkcije CrtajPresTacke(geometrija-ti)
+       3)prolazimo kroz sve duzi i uporedjujemo sa svakom tackom iz niza pres.tacaka,
+                     funkcija duzi_podeli_u_prestac
+                     ovde sam dodao pomocne f-je:
+                                                < t_je_teme_d,  t_iste_tacke, t_u_T_stv >
+
+      !!Imam gubitak memorije, nije konstantan=> zavisi od broja unetih elemenata
+
+
+2.6.6 **Prelazim na <standardno.h> funkcije za uporedjivanje float tipova
+      **Bag iz preth.verzije
+      Preuredicu funkciju duz_proveri_preseke:
+       1)Nalazenje svih tacaka preseka zadate duzi sa ostalim duzima
+       2)Prolaz kroz sve duzi(ukljucujuci i zadatu)
+         i za svaku videti da li sadrzi neku od tacaka preseka, duz podeliti ako sadrzi tacku
+
+      **Provera duple tacke, duple duzi, kao i preseka duzi treba da se obavi u funkciji duz_dodaj
+        ili da se naprave nove funkcije koje ce da kombinuju ove funkcije
+      **tacku_dodaj, npr. treba da vraca pointer ka unetoj tacki(ili ev.duplikatu)
+
+2.6.5 **Dodao sam InfoStepeni Slobode
+      && U slucaju kad dodam vertikalnu duz koja ne sece drugu, ipak dodaje tacku u preseku njihovih pravih
+      && Desilo mi se da pri unosu duzi istu tacku unese dvaput, proveriti IzaberiTacku()
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Potrebna mi je bolja lista stapova, sa sve alfama i duzinama
+
+2.6.4 **Doterao sam CrtanjeTacke
+      **Popravljene i pustene u rad funkcije vezane za podelu duzi
+      **Dodajem funkciju info_d
+      **F-ja k_p daje koef.pravca, nesrecno je nazvana, pa cu da je preimenujem u k_p
+&&Problem je u konceptu za deljenje nove duzi ako se ona sece sa ostalima.
+  Ako ih podelim odmah kada naidjem na presek, gubim pocetnu strukturu/sortiranje i program puca.
+  Problem je u funkciji duz_proveri_preseke, i podeli_d_u_t. Lose zamisljeno!
+  Popravio sam donekle, ali i dalje ne deli vertikalne duzi
+
+OSTAVLJAM PROBLEM SA PODELOM DUZI-JEDNOSTAVNO ZASAD UNOSITI DUZI BEZ PRESEKA
+
+2.6.3 Idemo ponovo da probamo da doteramo unos_duzi
+      FALA BOGU nadjoh gresku:
+      u samoj def. strukture duzi bilo je predvidjeno [1][2] a ne [3][2]
+      **Ubacio sam konstantu info3_koordtacke na pocetku
+      **Pokusao sam da prepravim CrtajTacku, nije bas uspelo
+.....................................................
+2.6.2 Prepravljam imena nekih funkcija(u geometrija-c, vezane za formiranje tacke i duzi)
+       -prvo idu zajednicke reci-objekti funkcija, pa radnja na njima
+2.6.1 Idemo sad na jos radikalnije uproscavanje koda:
+      Uvodim funkcije za preglednije dolazenje
+      do koordinata i imena tacaka, duzi:
+      ---------ELEMENTI STRUKTURA---------
+      U skladu sa novim f.jama sam i delimicno zamenio/skratio kod u projektu
+.....................................................
+2.6   Prebacicu pc, kt i kd na globalne pokazivace.
+      Ne mogu vise da ih unosim u sve zive funkcije.
+__________________________________________________________________________________
+2.5.3
+2.5.2   Ova verzija je bila losa, preskocio sam je, detalje vidi u samoj verziji
+2.5.1   **Ubacio sam funkciju duz_proveri_preseke koja treba da prodje
+          kroz sve duzi i da vidi da li se sece sa zadatom duzi,
+          i u skladu sa tim da ih deli u pres.tacci na po 2 nove duzi
+        &&Problem nastaje kod toga sto mi je potrebno da imam zdravu strukturu duzi
+          sortiranje prema id, koje izgleda odavno nije dobro, ali nije pravilo problem do sada
+          Sacuvacemo ovako i idemo da to resimo u sledecoj verziji
+
+2.5     **Ubacena funkcija t_deo_grida
+          Izbor duzi iz grida unapredjen, sada se poslednje izabrana tacka
+          postavlja za pocetnu pri izboru naredne duzi.
+          Provera duzi-duplikata vrsi se sad pri unosu tacaka duzi,
+          u funkciji Unos_duzi_ekr
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5.x   **U 2.5.x pustamo u upotrebu nove funkcije:
+        ANALITICKA GEOMETRIJA:  k_p, paralelne, presek_prava, t_pripada_d,
+        PRIBLIZNA MATEMATIKA:   azuriraj_toleranciju, jednaki, manji, veci. Za ovo je ubacena glob.promenljiva tol.
+        duz_podeli_u_t
+        -Pustanje u upotrebu: u funkciji Unos_duzi->duz_dodaj
+         tako sto svaku novu duz(koja nije duplikat) proverimo sa f-jom paralelne,
+          kada jesu: moguce je da se seku u nekoj tacki, tada se 2 duzi dele na 4 (duz_podeli_u_t)
+          kada nisu: moguce je da se preklapaju,
+                     tada nova duz za desni kraj uzima levi kraj postojece sa kojom se preklapa
+____________________________________________________________________________
+2.4.4 **Rad na ANALITICKOJ GEOMETRIJI, PRIBLIZNOJ MATEMATICI
+        Sve osmisljeno, napisano i uspesno kompajlirano
+        Jos nije nista pusteno u upotrebu.
+        Spisak novih funkcija pogledaj u sledecoj verziji (idemo na 2.5)
+      **Primecen i popravljen bag: Nije se pre unosa kroz grid nulirao vektor pomeranja celog crteza dok[2]
+      **Provera duple tacke ubacena i u tacku_dodaj
+      &&Slicno bi trebalo i provera duple duzi da se radi u okviru duz_dodaj
+
+2.4.3 **Dodao sam 2 ikone u meni, dodao HelpMsg u unosu tacke
+      &&Pokusavam da izlistam fajlove tacno odredjenog tipa, ali ne ide
+2.4.2 **Prepravljene funkcije za Oslobodi_memoriju_   vise nisu rekurzivne
+
+2.4.1 **Sredjen bag &2 primecen u 2.3.15, dx i dy za pomeranje dok su bili definisani
+        kao short umesto float.
+      **Izgleda da sam sredio bag iz 2.4
+      &&Ako udjem u petlju while t!=NULL sa sortiranjem prema id, idem u beskonacno
+        Ispada da nekako (*kt)[2][1]->sused[2][1] nije NULL a MORA da bude
+        Izgleda da nisam nulirao _exttck _extduz kad treba -> pre Novi_ ->prepravio sam
+
+2.4   !** Totalno prepravljeno Sacuvaj/Otvori
+        *Dodate funkcije:
+             sacuvaj_geometriju, (sacuvaj_duzi,sacuvaj_tacke-prepravljene)
+             procitaj_geometriju,(_duzi,_tacke-prepravljene)
+             tacku_nadji_po_id
+             tacaka_ukupno, duzi_ukupno
+       Ucitava i duzi!!
+       &&Kada izadjem iz programa, ne mogu ponovo da ga pokrenem
+         Kaze:"Variable or Flash application in use"
+_____________________________________________________________________________
+2.3.17 **U f.ji azuriraj_gabarit podelio sam sa 2 duzinu za koju prosirujemo
+         gabarit u pravcu gde imamo samo 1 koordinatu
+       **Dodao sam funkciju duz_trazi_duplikat, izgleda da radi kako treba
+
+2.3.16 **Izbacio sam funkciju uklopigrid_ugabarit, prepravio azuriraj_gabarit
+
+2.3.15 **Dodate f-je UslovZaUnosDuzi, DozvoliUnosDuzi, UnesenGrid
+       **Popravke oko IzaberiTacku
+       &&Zeza ako odmah unesem grid sa 1 istom koordinatom: azuriraj_gabarit
+       &&Nece da pomera crtez na strelice gore/dole - kad je (0,0) donja leva gabarita
+
+2.3.14 **Funkcija tacki_trazi_duplikat
+       **Jos prepravki u IzaberiTacku, provera duplikata, redosled radnji
+         & Na APPS treba da se ukljucuje/iskljucuje grid, jos uvek nije kako treba
+_________________________________________________________________________
+2.3.13 **Dodao sam funkciju IzaberiIzGrida, prepravio sam IzaberiTacku
+         Sada je potrebna funkcija za proveru duplikata unete tacke
+       &&Cisto stanje sa pocetka programa gabarit=0, unos tacke->ESC => gabarit=?6dj384><?
+
+2.3.12 **Sredio sam bag iz preth.verzije
+
+2.3.11 **Ubacio sam funkciju uklopigrid_ugabarit
+         Prepravio sam azuriraj_gabarit da uzima u obzir i grid,
+           ne centrira kad je uneta samo jedna tacka,
+           ne crta grid kad nema nijedna uneta tacka
+           ->verovatno je u pitanju redosled radnji u azuriraj_gabarit
+
+2.3.10 **Popravio sam bag &&1 primecen u 2.3.9
+
+_________________________________________________________________________
+PLAN: *Grid:
+        -Kad se bude unosilo kroz grid, krecemo se samo kroz tacke grida
+         nema kretanja kroz vec unete tacke, osim ako nisu sastavni deo grida
+                                                    **reseno u 2.3.13
+        -Tokom izbora tacaka, da se omoguci ukljucivanje grida **reseno u 2.3.14
+         na neko bitno dugme, npr. APPS, indikator u donjoj info liniji
+      *Srediti:
+        -brisanje stapova
+        -brisanje povezanih stapova prilikom brisanja tacaka
+      *Funkcija za trazenje eventualnih duplikata medju tackama **reseno u 2.3.14
+       i stapovima
+      *Funkcija za presek 2 duzi, tj. da li se seku uopste
+         -ovo ce za svaku novu duz da se proveri da li sece ostale
+      *Funkcija za podelu duzi na dva dela zadavanjem tacke na duzi
+         -ovde nam treba funkcija za proveru da li tacka pripada duzi
+      *Provera da li su stapovi spojeni (imaju li zajednicku tacku)
+         -trebace za metodu sila
+_________________________________________________________________________
+2.3.9.xx
+      **Uspeo sam da sredim dijalog za grid
+      **Usput dodat i dijalog za unos poprecnog preseka
+_________________________________________________________________________
+2.3.9 **Pokusao sam da napravim dijalog za podesavanje grida, ali uporno zeza,
+        resetuje pri povratku u _main
+      &&Primecen bag: Pri unosu dve tacke sa istom x koord. razmera je +-1
+                      i nema crteza dok se ne unese tacka sa razlicitom x-koordinatom
+__________________________________________________________________________
+2.3.8 **Kada nema unetih bar 2 tacke opcija za unos duzi je onemogucena
+      **Kada se prit.ESC pri unosu prve duzi bio je resetTI, vise nije
+      &&Pri Otvaranju fajla, ostaju prethodno unete duzi, promeniti
+__________________________________________________________________________
+2.3.7 **Dodao sam funkciju Vidljivost()
+2.3.6 **Sredio sam malo Oslobodi_memoriju
+      **Ubacio sam Info 3 da se brise posle velike petlje za izbor iz glavnog menija
+      **Pri pokusaju unosa duzi bez unetih tacaka Info3
+      &&Pri ESC na unosu prve tacke imam resetTI
+2.3.5 **Napravio sam funkciju Strelice: za pomeranje crteza
+      &&resetTI kad ucitam fajl i odmah odem na F5-izlaz ->reseno u 2.3.6
+2.3.4 **Napravio sam funkciju Novi_ , Oslobodi_memoriju_duzi
+      &&Imam (mozda??) gubitak od 4 byte u memoriji, i ne mogu da pronadjem gde je
+2.3.3 **Sredjen naopak prikaz po y osi, funkcija xy_crt
+      **Presao sam na funkciju Brisi umesto Crtaj sa A_XOR
+      **Sredio sam da duzi ne beze van crteza, f.ja Crtaj_Duzi:Crtam sa DrawClipLine
+2.3.2 **Sredio sam problem sa zumiranjem kod izbora tacke za unos stapa
+      **Dodao sam info o koordinatama tacke na komandnoj liniji
+      **Dodao sam crtanje duzi u funkciju Crtaj
+      &&Novi primeceni bagovi:
+        Pri izboru prve tacke za stap, resetTI pri ESC
+2.3.1 **Ranije sam imao problem pri crtanju novog ucitanog fajla,
+        ako pritom nema unetih elemenata. Problem resen:
+        *Promena pocetnih vrednosti pc.zum=pc.razmera, moraju imati istu poc.vrednost
+        *Izmena u funkciji azuriranje_gabarita
+         Azuriranje gabarita ce biti izvrseno samo kada ima unetih tacaka
+        *u Crtaj: Crtanje tacaka ce biti izvrseno samo ako ima unetih tacaka
+      **Popravio sam bezanje tacaka izvan crteza:
+        *U funkciji Crtaj_Tacku dodao sam:
+         -uslov za oznaku
+         -static short rastojanje
+      &&Novi uoceni bagovi:
+        Pri unosu stapova(izboru tacaka) ne centrira tacke.
+2.2.6 Sada imam i crtanje duzi pri izboru, kao i Info podrucja.
+      Fale funkcije za brisanje crteza, iscrtavanje svih stapova
+                       (ovde paznja za one koje su van vidljivosti)
+      I dalje nema pravilnog sortiranja u strukturi Duzi, to je u planu za sredjivanje
+      Takodje, unos duzi treba da obuhvati i izmenu duzi,
+               obratiti paznju na intuitivnost predloga sledece tacke:
+                Treba uvesti jos sortiranja kod tacaka: Prema udaljenosti
+                To znaci:da svaka tacka ima jos 4 pokazivaca, za svaki smer,
+                  ka tacki u tom smeru koja joj je apsolutno najbliza,
+                  a ne najbliza prema koordinati tog smera.
+                  Tako ce se sa (0,0) strelicom udesno otici pre na (2,0)
+                  nego na (0.5,10)
+
+      Parametri crtanja-mogli su da budu i globalni mozda.
+
+2.2.5 Biranje tacke na ekranu radi
+2.2.4 Crtanje samo u okviru, oznake mi beze van
+      Ubacio sam pc->rezim.
+      Izbacio sam clrscr() prilikom ponovnog crtanja, da ne bi stalno treperilo
+      Umesto clrscr() koristim Crtaj,CrtajTacku; pre koga stavljam pc->rezim=A_XOR
+      Kada je rezim A_XOR, tada sam podesio da se ne vrsi azuriranje pc,
+      da bi se tacka koju brisem nalazila i dalje na istom mestu na ekranu kao i pri njenom crtanju.
+2.2.3 Crtanje je konacno kako treba, ali crta i van okvira
+      sledece je da se ubaci pomeranje zumiranog crteza putem strelica
+2.2.2 Sacuvaj/Procitaj tacke u fajl sttk
+2.2.1 Male popravke
+2.2 Dodao sam mogucnost zumiranja na +/-
+2.1 Okvir crteza je centriran, ali ne zumira dobro, funkcija xy_crt verovatno
+2.0 Nije crtez na mestu i dalje
+1.2.10 je pocetna verzija: konacno osposobljena za nekakvo crtanje tacaka

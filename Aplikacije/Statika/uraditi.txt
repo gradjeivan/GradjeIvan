@@ -1,0 +1,36 @@
+23)Funkcija koja se pokrece pri izlazu iz programa sa bilo koje tacke, nakon exit()
+   Videti funkciju atexit.
+22)Da se ima struktura BOOL promenljivih koje bi belezile sta je od promenljivih promenjeno,
+  cime bi se iz nizih funkcija ove informacije slale u visu,
+  a koja bi posle trebala da se pozabavi sa tim na sta promene uticu od ostalih promenljivih u programu.
+21)Dijagram da se unese za niz povezanih stapova ako je npr. trapez preko vise stapova
+20)Napraviti kombinacije vidljivosti za razlicite modove: unos tacaka, stapova, izbor dijagrama,...
+19)Kad promenim tip stapa, ne menjaju se oslanjanja, pa crtez veza na krajevima ostaje kao za prethodni tip stapa
+18)Ubaci konstantu za mnozioc koordinata u y-pravcu, koji bi bio jednak -1 za TI-89
+17)Funkcije za dodelu pocetnih vrednosti svih objekata-OBAVEZNO
+16)Podela stapa prom.pop.preseka pri preseku sa drugim stapom nije jos uradjena
+15)Pri unosu stapa, u slucaju da se odustane posle vec unete jedne tacke, treba i nju izbrisati
+14)Potrebna je mogucnost izbora da li je za stap unet dijagram M ili N
+13)Ubaci kubnu parabolu u verescagina
+12)U slucaju samo jedne staticki neodredjene, dobijam 0 za inverznu matricu koeficijenata(koju cini samo delta11)
+11)Proveri funkciju za odredjivanje oblika dijagrama
+10)Konacan dijagram momenata
+9)Elasticne tezine
+8)Proracun Verescagina u vise redova
+7)Automatsko ispunjavanje tekst.polja za unos delta 0t
+6)Da se pri izboru stapa, na tipke +/- menja faktor koji odredjuje razmeru dijagrama
+5)Sacuvati uneti vektor u fajlu
+4)Da se pri izboru stapa za ispis matrice krutosti ili transf. u desnom info-u
+  nadju informacije o uslovima oslanjanja: koordinate, mreza 1x3 x,y,rotacija(z,rotx,roty za rostilj)
+3)Da postoji mogucnost iskljucivanja umetanja presecnih tacaka
+            (Zbog Verescagina: Da se deo stapa ne deli na mestu susticanja 2 stapa,
+                                   pa da imam dva trapeza u proracunu umesto jednog)
+ -Da se prilikom podele stapa na dva dela automatski podeli i vec unet
+  pripadajuci dijagram
+ -Da sam program nudi vrednosti dijagrama na osnovu dij.susednog stapa
+ -Dodati mogucnost unosenja stapa promenljivog popr.preseka
+ -Dodati prikaz slova 'i' i 'k' pored odg. krajeva stapa prilikom oznacavanja
+2)Treba napraviti da nakon unosa tacke kroz dijalog, posle ona bude oznacena,
+  a mod unosa bude prebacen na biranje unetih tacaka (intuitivnije je)
+1)-brisanje stapova
+  -brisanje povezanih stapova prilikom brisanja tacaka

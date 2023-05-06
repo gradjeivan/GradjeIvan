@@ -1,0 +1,72 @@
+|========================================================|
+|                                                        |
+|                  GRADJEIVAN BETON                      |
+|                      v.                                |
+|                                                        |
+|                gradjeivan@gmail.com                    |
+|                                                        |
+|========================================================|
+
+Postoje 2 verzije programa:
+
+ 1)Nekompresovana
+   Sastoji se od 1 fajla i radi samostalno.
+
+ 2)Kompresovana
+    Sastoji se od 2 fajla i potrebno je da na kalkulatoru
+   postoji program  za dekompresiju, npr. sstart.
+
+ Dovoljno je prebaciti samo jednu varijantu.
+
+__________________________________________________________
+Verzije:
+0.2.2.6  Dodajem tip Zid
+
+0.2.2.5  Seizmicka analiza doradjena
+0.2.2.4  Dodajem stavku Konstr->Zgrada, funkcija Unos_zgrada, za unos etaze i Wi
+         U tipu ABKonstrukcija dodajem struct zgrada, koji treba da sadrzi podatke o zgradi
+         Upisujem ih u fajl, citam takodje.
+
+0.2.2.3  Vracam se nazad u projekat..krecem od verzije 0.2.2.1
+         Unos_periodoscilovanja,  Seizmika_Analiza,
+         Sacuvaj,  cuvanje fajla u poslednj.bab pri izlasku iz programa
+
+2015/sep/13
+__________________________________________________________
+-------------------- prekid rada -------------------------
+2015/jan/xx TPN..jbg
+__________________________________________________________
+0.2.2.2  preskocio
+0.2.2.1  Cuvam i citam abp->id
+0.2.2.0  Funkcija IzmeniABPP
+
+0.2.1.6  ...nista
+0.2.1.5  I/O za sile
+0.2.1.4  Funkcija za unos pres.sila
+         Sada pri formiranju ABP odmah se alocira mem za 3 sl.opterecenja i postavlja na 0
+         Pozdravna poruka se ispisuje u WINDOW prozoru
+         Izabrani dijagram interakcije se cuva izmedju 2 poziva DI
+0.2.1.3  Pozdravna poruka
+0.2.1.2  Resio sam problem sa id pp
+0.2.1.1  Ubacujem tip PresSile
+         Dijalog za Unos PresSile
+
+0.2.1.0.1 Uspesno ubacen Dijagram Interakcije
+
+0.2.0.9
+0.2.0.8  Info pozicije
+0.2.0.7  Funkcije za cuvanje i citanje iz fajla
+0.2.0.6  Funkcije za unos,brisanje.. tipa AB_GredaStub
+         Dodat opis poprecnog preseka pri izboru u dijalogu
+0.2.0.5  Funkcije za unos,brisanje.. tipa ABPresek
+0.2.0.4  Prepravio sam tip PoprecniPresek (ubacio sam sused[2]), i funkcije prilagodio
+0.2.0.3  Dijalog za unos poprecnog preseka
+         Funkcije za unos,brisanje.. tipa PoprecniPresek
+0.2.0.2  Unos podataka za seizmiku
+0.2.0.1  Novi tipovi: ABKonstrukcija, AB_GredaStub...
+         Globalne promenljive: kja, rr
+         Funkcije:    InicABKonstr,
+                      SeizmickaSila, KoefSeizmickeSile
+         Popravljen unos i info materijala.
+
+0.2.0.0  Glavni LOOP, sa infoom i izborom materijala

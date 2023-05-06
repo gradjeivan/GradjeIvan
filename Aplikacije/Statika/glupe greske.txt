@@ -1,0 +1,4 @@
+NAJCESCE JE U PITANJU NEKA DUZINA TEKSTA!!!!
+1) Nisi stavio void u foo(void) pa imas foo()
+2) Preterao si sa duzinom teksta koji upisujes u string sa sprintf
+3) Prijavljuje Internal error na izlazu iz programa: Trazi da vratis RETURN_VALUE

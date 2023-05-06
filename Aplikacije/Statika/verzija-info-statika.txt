@@ -1,0 +1,496 @@
+5.0.0.0 Ubacujem <graficko okruzenje.h>
+                 <.h>
+
+
+nastavak: 2015-okt-15
+====================================================================
+
+4.0.6.4 Ubacio sam funkciju UcitajDLL
+
+nastavak: 2015-sep-13
+====================================================================
+
+---------------------prekid rada------------------------------------
+====================================================================
+4.0.6.3 Prebacio sam geometriju u function archive
+4.0.6.2 Dijalozi se citaju iz function archive
+        Neke stringove koji se ponavljaju sam prebacio u konstante #define, svaka u svom headeru
+      #!Program radi iako su funkcije Info i InfoFill 2x definisane (jednom unutar dijalozi.a)
+        Ovako cak zauzima manje iz nekog razloga
+-----------------------------------------------
+4.0.5.1 Sredio sam funkciju unosP_stabilnost
+4.0.5.0 Nastavljam od verzije 4.0.4.3 posto je posle doslo do nekih neutvrdjenih problema
+        grimtprr 20, griinic 4
+        Rade K* i Kg*, ali jos uvek ne vrsim oslobadjanje pointera stap->jos pa postoje crashovi
+------------------------------------------------------------------------------------
+!4.0.4.5 Menjam f-ju MatKrutNosacaKnn_Stampaj tako da radi i za stabilnost, matrice K* i Kg*
+        To zanci, menjanje f-ja MatKrutNosaca_Prr, MatKrutKnn_Prr
+!4.0.4.4 grimtprr 21: Prebacujem neke funkcije na koriscenje globalne strukture Nosac
+---------------------------------------------------------------------------
+4.0.4.3
+4.0.4.2 Batalio sam zasad grupe dijagrama.
+        Pravim matrice za stabilnost;
+           griinic 4: menjam enums, dodajem stavke u F3 i F4:glavni meni
+           grimtprr 20: funkcije za proracun matrica K i Kg za stabilnost
+           statika-funkcije: nove funkcije za stabilnost:
+                             Unos_P_stabilnost, Unos_IlPc,
+                             StampajMatKg_stabilnost, StampajMatK_stabilnost
+
+4.0.4.1 Pravim grupe dijagrama
+        <griinic.dll 3> dodata je stavka u glavni meni: grupe dijagrama
+                        pritom sam promenio enum za 63-66, pa nisu vise kompatibilne ranijie verzije
+        Dodao sam stavku za GrupeDijagrama u _main kao i prazne funkcije u statika-funkcije
+
+4.0.4.0 ...je ista kao i 4.0.3.5
+------------------------------------------------------------------------
+4.0.3.5 Ova verzija je pogodna da se popravljaju ili prave
+        funkcije za zamenu mesta, linearno kombinovanje vrsta i kolona...
+
+4.0.3.4 Ovde je tabela prebacena u <grimtprr.dll 18>
+        Razbio sam statika-funkcije na statika-...
+                                        gde je ... = grafika, graficki unos, grimtprr, matrice, funkcije
+
+4.0.3.3 Razdvojio sam dijaloge od tablica
+4.0.3.2 C file:unosgeom-funkcije
+4.0.3.1 Nastavljam razbijanje na C-source fajlove: statika-c
+4.0.3.  Nakon pauze (brane)
+------------------------------------------
+4.0.2.1 Slucaj sa samo jednom staticki nepoznatom daje 0, moram da resim to treba mi za stabilnost
+4.0.2.0 Ukidam globalne kt,kd,... iz geometrije i ubacujem u Nosac *nsc
+------------------------------------------
+4.0.1.5 Ovde se Meni lepo Azurira
+        Popravio sam bag pri brisanju konacnih dijagrama,
+        nisam bio NULLovo pointere d->tata->jos=NULL;(SuperpozicijaM)
+        Popravio sam gresku u stampi za mnozenje pravougaonika i trapeza, jedna strana trapeza je bila kao mnozena sa 2
+4.0.1.4 Ubacene funkcije za Azuriranje Glavnog Menija, postoje bagovi, ali sve radi
+4.0.1.3 Popravljena superpozicija_XiMi, grimtprr16
+4.0.1.2 Lokalne funkcije za geometrija-c i geometrija-ti prebacene u static
+        Vratio sam staru superpoziciju_XiMi, ona u grimtprr15 nesto ne radi dobro
+4.0.1.1 Poceo sam razbijanje na C-source fajlove; Ovo se cini da radi lepo
+==========================================================================
+-------------------------------------------------------------------------
+3.9.3.3 Ime izvezene matrice je "izvoz"
+        Zamena el.matrice radi dobro, ali se zaglavlje pobuta ako se vrsi zamena pojedinacnih vrsta ili kolona
+3.9.3.2 Zamena radi
+3.9.3.1 Zamena radi, osim za slucaj vr+kol
+---------------------------------------------
+3.9.2.9
+3.9.2.8/2 Izgleda da radi izbacivanje kol/vr
+3.9.2.7 Prebacio sam MatKrutGlob_Prr, MatKrutNosaca_Prr u grimtprr
+        POSTOJI BAG pri izbacivanju vrsta/kolona
+3.9.2.6 Razbio sam MatKrut, na MatKrutLok_Prr, KonstanteStapa_Stampa, MatRavnoteze_Stampa
+        Prebacen MatKrutLok_Prr u grimtprr
+3.9.2.5 ZanemariNsilu_T prebaceno u grimtprr
+        Izbacivanje iz matrice radi,
+        treba dodati i zaglavlje za vrste, onda doraditi izbacivanje
+3.9.2.4 Ubacena f-ja Matrica_PripremaTabKol
+3.9.2.3 ..i jos
+3.9.2.2 ..jos vise unapredjen izbor
+3.9.2.1 Izbor argumenta operacije unutar tablice: tip:(vrsta/kolona/oba), i konkretna vrsta/kolona
+3.9.2.0 Prebacio sam MatKrutKnn_Prr (ponovo-sad valjda radi)u grimtprr 1.12
+______________________________________________________________________
+3.9.1.12 Radi zaglavlje za Knn
+3.9.1.9-10 Ubacio sam IzborVrKol za izbor u tablici
+        Prebacio sam MatKrutKnn_Prr,NovaTMatrica, IzveziMatricuGT, superpozicija_XiMi
+
+3.9.1.8 Jos doteranije
+3.9.1.7 Sredio sam tablicu prema novom sistemu, sa Menu-jem
+3.9.1.6 Prepravka tipa FrmtTab;
+        U njega ide sad sve sto treba za tabelu.
+        Prethodni FrmtTab se sad zove FrmtTabKol.
+
+3.9.1.5 MenuOff - glavni meni, nakon izbora iz istog
+        Poceo sam da menjam tabelu, ubacujem joj meni (komentovano ovde)
+3.9.1.4 Dodat je izvoz matrice Kn prilikom stampe Kn
+3.9.1.3
+3.9.1.2 Dodat je izvoz matrice Knn prilikom stampe
+3.9.1.1 Dodat je izvoz svih matrica K,T prilikom stampe, sa jedinstvenim imenima.
+        U ovu svrhu dodata je i funkcija IzveziMatricuGT.
+        ##Greska u preth.verziji je bila u tome sto se za S-stap ne treba da racuna matrica K u g.k.s.
+        Medjutim! I dalje neki bag vezan za S-stap:
+           primer 30:address error na kraju kad je tokom koriscenja programa birano stamanje K* za S-stap
+
+3.9.1.0 Izgleda da radi Knn - Ne radi dobro kad je nepoznato pomeranje u sklopu S-stapa
+3.9     Prebacio sam Iniciraj_glavni_meni u dll
+------------------------------------------------------------------------
+3.8.4.4 Dodajem IzaberiUnetuTackuNosaca
+
+3.8.4.3 Izgleda da radi Matrica krutosti nosaca
+3.8.4.2 Popravljena tabela: skrol nadole je bio los.
+        I dalje nemam mat.krutosti osaca. Zakoci na ElementiFo
+3.8.4.1 Dodajem pomeranja: za svaku tacku, po niz od 3 pomeranja (matrica [ntac][3])
+------------------------------------------------------------------------
+3.8.3.5 superpozicija: popravka, dodata podrska u Izaberi_stap:prikaz vrednosti
+3.8.3.4 Ubacen izbor uporednog poprecnog preseka
+        Ubacena superpozicija, ali jos treba da se radi na njoj
+3.8.3.3 Ova verzija cita i upisuje fajl od verzije 3.8.3.3
+3.8.3.2 Ova verzija cita fajl prethodne, a upisuje za sledecu verziju
+3.8.3.1 Ubacio sam N u dijagrame. Ostalo je da se izvrsi promena cuvanja/citanja fajla sa N.
+3.8.3.0 <dijalozi.h> funkcije prebacene u C-fajl
+--------|---------------------------------------------------------------
+3.8.2.10| UPOTREBLJIVO:mogucnost promene karakt. vec unetog stapa
+--------|
+3.8.2.9 Sredjen ispis pri unosu novog slozenog stapa
+3.8.2.8 Jos malo pa imam dobar ispis ppres za slozeni stap, jedino zeza slucaj unosa novog.
+3.8.2.7 Dodao sam enum za Glavni_Meni_Unos
+3.8.2.6 izmena konstantnog poprecnog preseka omogucena
+3.8.2.5 Nastavljam od 3.8.2.3:
+          Dodata funkcija IzmenaPoprecnogPreseka
+          DozvoliUnosStapova sada sluzi i za dozvolu izmene/brisanja duzi
+        #fali jos izmena poprecnog preseka da se omoguci
+3.8.2.4 Odbacena verzija
+3.8.2.3 Prepravljena funkcija IzborMaterijala, iskoriscena za izmenu materijala vec unetih stapova, radi.
+        #duz_sledeca ne vraca istu duz koju smo izabrali u Izaberi_stap, zasad sam vratio na stari nacin biranja stapova
+3.8.2.2 Ubacujem funkciju za izmenu karakteristika stapa
+3.8.2.1 Ubacio sam funkciju za izvoz matrice u grimtprr
+-------------------------------
+3.8.1.6 Sredio sam osvezavanje veza u tackama izabranog stapa: CrtajVezeuTacki
+3.8.1.5 Popravljene greske u : ugao_duzi_u_tacki, CrtajVezu, sada je sve u redu
+3.8.1.4 Rad na funkcijama za sledecu duz pri izboru duzi, jos treba raditi
+        Prepravljene funkcije za crtanje veze, stapa.
+        #Reseno:Postojao je bag u verzijama od 3.8.1.2, u CrtajStap pri pozivu iz Unos_stapa:
+           Pokusaj da se pozove d->tata iako jos uvek u tom trenutku nije dodeljen duzi
+3.8.1.3 Dodao sam f-ju za El.tezine, M_u_konc
+3.8.1.1 Dodao sam funkciju <duz_pridruzi_tacki>, kao i u funkciji dodaj_duz i tacku_dodaj
+                                                 delove koji se odnose na povezanost tacke sa duzima kojima pripada
+        Dodao sam uslov za crtanje zgloba, funkcija <MogucePomeranjeVeze>
+3.8     Izbacio sam void * iz definicija tipova Stap i Duz, i zamenio sam ih sa Duz* i Tacka*, respektivno.
+___________________________________________________________________________________
+
+3.7.5.3 Promenio sam u tipu Stap->opt u Stap->dij
+
+3.7.5.2 Dodao sam enum TipDijag:TRAPEZ, PRAVOUGAONIK, TROUGAO_I, TROUGAO_K
+        Dodao sam case PRAVOUGAONIK: u Prr_Veresc
+        Dodao sam varijantu TRAPEZ na kvadrat u Prr_Veresc
+3.7.5.1 Prr_Verescagin: Za mnozenje parabole i linearnog, dodao sam ispis Lred u proracunu.
+
+        ___________________________________________________________________________
+-------|
+3.7.5  |  UPOTREBLJIVO: Matrice krutosti za stapove promenljivog poprecnog preseka
+       |                                                                U G.K.S.
+       |                Verzija grimtprr.dll je 1.7
+-------|____________________________________________________________________________
+
+3.7.4.5
+3.7.4.4 Ovde rade i matrice krutosti u g.k.s za zanemarenu N-silu, kod stapova prom.popr.pres.
+        -Sredio sam C za stapove prom.p.p.
+         To sam postigao prepravkom ZanemariNsilu_T u ZanemariNsilu_TC
+        -Sredio sam i gresku u MatKrut_promPP sa cik,cki
+
+3.7.4.3 Imam dobre matrice krutosti u g.k.s za zanemarenu N-silu, kod stapova konst.popr.pres.
+3.7.4.2 Menjao sam grimtprr: Ubacio sam funkciju za izbacivanje vrste iz Matrice
+3.7.4.1 Funkcija za izbacivanje vrste iz matriceGT
+        Funkcija ZanemariNsilu_K
+        ___________________________________________________________________________
+-------|
+3.7.4  |  UPOTREBLJIVO: Matrice krutosti za stapove promenljivog poprecnog preseka
+       |                Verzija grimtprr.dll je 1.1.3
+-------|____________________________________________________________________________
+3.7.3.2
+3.7.3.1 Dodao sam proracun i stampu matrice ravnoteze
+        ___________________________________________________________
+-------|
+3.7.3.0|  UPOTREBLJIVO: Konstante za stap promenljivog popr.preseka
+-------|___________________________________________________________
+
+3.7.2.1 ...ovde su stvarno gotove
+3.7.2.0 Gotove su muke sa baznom matricom fleksibilnosti
+-------------------------------------------------
+3.7.1.6.1 Izgleda da ne sacuva dobro fajl, jer se razlicito ponasa
+3.7.1.5 Ubacio sam funkcije: ElementiBazneMatFleks
+                             KonstanteStapaPromPP
+                             PrikaziPrr_KonstStapaPromPP
+
+3.7.1.4 Sredjujem InfoPoprecnihPreseka za stapove prom.pop.preseka
+3.7.1.3 Ubacujem citanje iz fajla:Izgleda da radi.
+3.7.1.2 Ubacio sam cuvanje fajla, ne i citanje. Ovom verzijom konvertujem stare fajlove u nove.
+        Provera u sledecoj verziji gde implementiram citanje.
+        Takodje, prvo se cuvaju podaci o verziji programa.
+3.7.1.1
+3.7.1  Menjam koncept za SlozeniStap dok nije prekasno:
+       Moram da izbegnem varijantu sa grupisanjem razlicitih duzi;
+       Umesto toga: uvodim BOOL ppkonst pomocu koga cu znati da li je slozeni stap
+                    a samim tim i da li se poprecni presek cita iz ppres ili sstap
+       -Zasad ne radi podela stapa promenljivog poprecnog preseka
+       -Ucitavanje iz fajla zasad salje TRUE za konst
+---------------------------------------------------------------------------------
+3.7.0.3 stap_podeli_u_pres_tac treba da vrati nizduzi dobijenih podelom da bih ih dodelio Slozenom Stapu
+
+3.7.0.2 Nasao sam greske sa pointerima u prethodnoj verziji.Ispravljeno.
+3.7.0.1 Unos slozenog preseka radi.
+        Ostaje da se:
+           -Pri izboru stapova biraju slozeni stapovi, a ne stapovi koji ih cine
+           -Uzme u obzir prilikom podela duzi i pripadnost te duzi slozenom stapu
+3.7.0.0 Ubacujem tip SlozeniStap
+        Cilj je da se iz tipa Stap izbaci -tip- i prebaci na SlozeniStap
+        Na kraju ce svaki stap da bude SlozeniStap, a -tip- ce da bude
+        ili zadat od strane korisnika ili automatski dodeljen na osnovu granicnih uslova
+--------------------------------------------------------------------------------
+3.6.2.1 Ubacio sam Info1 za UslovneJednacinePrikaz
+        Verescagin:Pri izboru stapa iscrtan je prvi dijagram koji ucestvuje u proizvodu
+3.6.2.0 Tacno odredjivanje d0; bila je greska za zadato opterecenje+temperatura+sleganje
+3.6.1.1 Male popravke
+3.6.1.0 Ubacio sam izbor sabiraka za vektor slobodnih clanova
+        Sada je u proracunu i temperatura+sleganje.
+*********************************************************************************
+3.6.0.1 PREBACEN <statika-matrice.h> NA MATRICE.DLL:
+*********************************************************************************
+
+3.6 ZADATAK: PREBACITI <statika-matrice.h> U DLL
+
+*********************************************************************************
+********************      64KB     **********************************************
+*********************************************************************************
+3.5.7.3 Ubacio sam automatsku pojavu podesavanja grida za Novi_
+        Ubacio sam srafuru za dijagrame
+
+3.5.7.2 Ubacio sam funkciju mnozi_M_skalarom <statika-matrice.h>
+        Sad je znak vektora [X] dobar, tj. suprotan nego do sada.
+
+Treba uraditi: Da se pri izboru stapa, na tipke +/- menja faktor koji odredjuje razmeru dijagrama
+
+ Dodao sam osvezavanje crteza dijagrama pri izboru stapova
+         Za ovo mi je bilo potrebno da u funkciju CrtajSveDijagrame stavim razmeru kao izlaznu vrednost
+
+3.5.7.1 Dodao sam maks_opt_za_stanje u <statika-c.h>
+                  CrtajDijagram, CrtajSveDijagrame u <statika-grafika.h>
+-------|------------------------------------------------------------------------
+3.5.6.7 Ubacio sam i staticki nepoznate da se racunaju
+-------|Doterao sam tabelu
+        Imam nesto nalik progres baru pri proracunu matrica
+3.5.6.6 Razbio sam funkciju UslovneJednacine
+        u 2 funkcije:UslovneJednacine_Prr i UslovneJednacine_Prikaz
+
+3.5.6.5 Proracun inverzne matrice RADI
+        Izmene su u delu oko matricnih konverzija, oslobadjanja memorije
+          Podela memorije koja cuva elemente matrice izmedju dve razlicite
+          formulacije, moje i ovog cije su funkcije
+3.5.6.4 Copy/Paste-ovao sam funkcije za Inverznu Matricu sa interneta
+        Implementirao sam ih sa mojim funkcijama:
+          dvosmerna konverzija tipa Matrica u njegov **float (zvacu ga Matrix)
+
+3.5.6.3 Dodata f-ja Prr_VekSlobClanova
+        Ubacena je u Uslovne Jednacine
+        #Potrebna je sad funkcija za inverznu matricu,
+
+3.5.6.2 Reseno oslobadjanje memorije vektora sl.clanova temp+sleg
+3.5.6.1 Dodao sam funkcije za unos d0t:Zadaj_d0t,Delta_0t_dlg
+        Uveo sam u main_ pokazivace d0t i d0 za vektor slobodnih clanova,
+                                        od opt. i zbirno od t i sleganja/obrtanja
+        Treba jos:
+         Oslobadjati memoriju zauzetu ovim nizovima: Na kraju programa, i pre dodele novih vrednosti
+         Prosirivati niz u skladu sa pojavom novih stanja(novih dijagrama)
+         Sacuvati uneti vektor u fajlu
+-------|--------------------------------------------------------------------------
+3.5.5.7 RADI FINO
+-------|Igranje sa infoom koji ce biti prikazan tokom glavne petlje
+
+3.5.5.6 Sada otvara poslednje koriscen fajl
+        Sprecio sam pokusaj upisa u arhiviran fajl(i CRASH pritom)
+        #Postoji bag kod ispisa Verescagina:nema ispisa za element.Vidi zadatak 9b, M10 valjda
+3.5.5.5 Novi_ mora uvek na pocetku jednom, a takodje i pre otvaranja nekog fajla (zbog inicijalizacija)
+        Ubacio sam Novi_ iza dijaloga za Open za slucaj ESC.
+3.5.5.4 Izgleda da funkcija Novi_ radi kako treba, sada moze i Otvori da se koristi
+3.5.5.3 #Zapeo sam u funkciji Novi_
+          Kad umesto brisanja memorije duzi ubacim bris.mem.greda, ne moze da se otvori fajl
+        *Poz.poruka je sada funkcija ST_PozdravnaPoruka
+        *Inicijalizacija promenljivih u <statika-c.h> kroz funkciju
+         InicGlobProm_statika_c() na pocetku _main
+
+3.5.5.2 *Pocetak radova na funkciji Novi_ koja ce da resetuje i materijale i popr.preseke
+         Stara funkcija Novi_ se sad zove Novi_geometrija(ali je ne koristim)
+        *Male izmene u glavnom meniju:dodato mesto za planirane funkcije
+        *Dodao sam pozdravnu poruku
+        *Prebacio sam imefajla u static promenljivu
+
+-------|POPRILICNO
+3.5.5.1  DOBRA      ZA UPOTREBU
+-------|VERZIJA
+        *Prebacio sam tabelu na WINDOW
+        *Pre dijaloga za cuvanje fajla sam ukljucio ALPHA
+
+
+-------|
+3.5.5.0 *Popravljen BAG U VERESCAGINU: nisam bio mnozio sabirke (parabola x ..) sa Lred !!
+-------| OSTAJE DA SE POTVRDI TACNOST UNETIH FORMULA !!!!
+
+        *Sredjen rep od prethodnog teksta u Info3 pri IzboruStapa
+        *Dodati pretprocesorski komentari, i iskorisceni u prikazu verzije u pomocnom prozoru
+
+-------|-------------------------------------------------------------------------
+3.5.4.7| UPOTREBLJIVA VERZIJA - ALI NIJE TACNA!! KAO NI SVE PRETHODNE !!!
+-------|-------------------------------------------------------------------------
+3.5.4.6 *Ubacio sam Info2 pri izboru stapa za Verescagina da prikazuje opterecenje tog stapa
+        *Vidljivost: Vracena mogucnost ispisa oznaka, iscrtavanja tacaka
+                     Kod Verescagina gasenje svega osim stapova, sa povratkom nakon funkcije Verescagin
+3.5.4.5 *Sredio sam polozaj i dimenzije pomocnog prozora i prozora za ispis
+         proracuna Verescagina, da odgovaraju prozoru za crtez
+3.5.4.4 *Dodata funkcija tacka_vidljiva <geometrija-c.h> i iskoriscena da se spreci crtanje veza van crteza(CrtajVezu)
+        *Dodato brisanje Info-a 3 pre izboru novog stapa
+         (da bih se resio prethodnog, cesto duzeg Infoa)
+        *Prepravka funkcija StampajMat****
+         Treba jos promeniti:
+         -Da se pri izboru stapa za ispis matrice krutosti ili transf. u desnom info-u
+          nadju informacije o uslovima oslanjanja: koordinate, mreza 1x3 x,y,rotacija(z,rotx,roty za rostilj)
+3.5.4.3 UPOTREBLJIVO
+        Nadjen bag: funkcija brel_TMatrice-nije bila dobra za matrice neparnih dimenzija
+        #Novi bag: Funkcija CrtezOsvezi puca ako nije ukljucen Generate Debug Information u Project Options
+3.5.4.2 Trazim bag u funkcijama za stampu matrice koeficijenata
+        Povecan pocetni bafer za tekst u PrrVeres, bilo je CRASH-ova (2.zadatak)
+3.5.4.1 Nove funkcije: StampajMatricu, StampajMatricuGT - stampa matricu proizvoljnih dimenzija
+                       MatKoef,StampajMatKoef -Proracun i stampa matrice koeficijenata
+                #CRASH:Potrebno je: ili osloboditi memoriju teksta verescagina
+                                    ili ubaciti u Prr_Veresc opciju da se tekst ne formira uopste
+                                        (bolje ovo drugo: ubrzavanje proracuna)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------|-------------------------------------------------------------------------
+3.5.3.2| UPOTREBLJIVA VERZIJA (tako bar izgleda, kuckuckuc)
+-------|-------------------------------------------------------------------------
+3.5.3.1.1 Ispravljen je bag iz prethodne verzije
+-------------------------------------------------------------------------------
+3.5.3.1| NIJE UPOTREBLJIVA VERZIJA - postoji bag kod oslobadjanja memorije dijagrama
+        Dodao sam cuvanje dijagrama zajedno sa fajlom
+        Razbio sam funkciju ZadajDijagram na ZadajDijagram i DodajNovoStanje(statika-c.h)
+        Ispravio sam indekse kod delta u stat.liniji za Verescagina
+        #Videti zasto ispisuje neke vrednosti za delta kod stapova bez opterecenja
+        ##CRASH kod ESC pri izboru dijagrama za mnozenje
+-----------------------------------------------------------------------------
+-------|
+3.5.3.0| ZAMALO PA UPOTREBLJIVA VERZIJA: Radi Verescagin, Otvori/Sacuvaj .gri fajl.
+-------|                               - postoji bag kod oslobadjanja memorije dijagrama
+         Treba promeniti jos:
+           -Da se u fajlu cuvaju i uneti dijagrami
+           -Da Novi_ resetuje i materijale, poprecne preseke
+           -Da postoji mogucnost iskljucivanja umetanja presecnih tacaka
+            (Zbog Verescagina: Da se deo stapa ne deli na mestu susticanja 2 stapa,
+                                   pa da imam dva trapeza u proracunu umesto jednog)
+           -Da se prilikom podele stapa na dva dela automatski podeli i vec unet
+            pripadajuci dijagram
+           -Da sam program nudi vrednosti dijagrama na osnovu dij.susednog stapa
+           -Dodati mogucnost unosenja stapa promenljivog popr.preseka
+           -Dodati prikaz slova 'i' i 'k' pored odg. krajeva stapa prilikom oznacavanja
+
+------------------------------------------------------------------------------
+3.5.222 Mnogo problema sa kompajlerom na prethodnim verzijama: nevidljive greske
+        Ovde sve radi.
+        Dodate su funkcije za Otvori/Sacuvaj/Sacuvaj kao...
+
+3.5.12 Prebacivanje svega na funkciju Dlg_ (sa funkcije FDlg)
+       Izbacene funkcije:IzborRaspOpt,Unos_dijag_trapez_dlg,Unos_RO_parabola_dlg
+       Ubacene umesto njih:Unos_dijag_dlg
+
+3.5.1 Optimizacija: Dijalozi za unos tacke, grida. Prebacujem na <dijalozi.h>
+3.5.0 Isto sto i 3.4.13 (62971 B)
+-------------------------------------------------------------------------------------------
+------|
+3.4.13| UPOTREBLJIVA VERZIJA: Nema curenja memorije
+------|
+3.4.12 Reseno curenje memorije: Nisam bio brisao pokazivac niza pokazivaca na dijagrame
+3.4.11 Postojala je greska pri proracunu Lred za Verescagina-Sredjeno.
+       Proverio sam mnozenje linearnih dijagrama-tacni rezultati.
+       ##Veliko curenje memorije:Ne oslobadjam memoriju teksta u Verescaginu.
+         Napisana je funkcija za ovo, ali proveravam je u sledecoj verziji.
+3.4.10 Bila je greska pri izboru vec unetog poprecnog preseka u indeksu u popup-u,
+       isli su od 0 umesto od 1 kao sto je bio plan.   Isto i za materijale - SREDJENO.
+3.4.9 Verescagin-Sve je tu, ostaje sminka i brisanje iz memorije. Naravno i da se proveri tacnost formula.
+-----|
+3.4.8| UPOTREBLJIVA VERZIJA : Daje K i T, tacno za : |-K-| , |-G-o , ->prost<- , |-S-x
+     |  Ubaceno Sacuvaj/Otvori Fajl
+-----|
+3.4.7 Napravio sam funkciju za cuvanje unetih stapova, materijala,pop.pres
+3.4.6
+3.4.4 *Dodao sam Info za dijagrame prilikom izbora stapa
+      *Dodao sam STANJA DIJAGRAMA
+      ##Ima CRASH na kraju, ali inace dobro radi do kraja, otom potom
+3.4.3 *Ubacio sam raspodeljena opterecenja, samo unos i brisanje iz memorije
+3.4.2 *Ubacio sam iz zbirke matrice K i T za rostilj
+3.4.1 *Uneo sam funkciju za izbor RAVAN/ROSTILJ, promenljiva u _main:BOOL rostilj
+      *Ubacio sam u materijal:G, a u poprecni presek:J zbog rostilja
+-----------------------------------------------------------------------------------------
+----|
+3.32| UPOTREBLJIVA VERZIJA : Daje K i T, tacno za : |-K-| , |-G-o , ->prost<- , |-S-x
+    |  Transformacija u G.K.S RADI!!
+----|
+        *Nove funkcije u headeru <statika-matrice.h> GOMILA
+
+//-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+3.2
+3.01 3.1 ODBACENO-Verzije kod kojih sam zamenio indekse u matricama
+
+----|
+3.3 | UPOTREBLJIVA VERZIJA : Daje K i T, tacno za : |-K-| , |-G-o , ->prost<- , |-S-x
+----|
+//-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=
+//-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=-+-=
+3.2.6.5 Ubacio sam K za g,s,prost i savijen K stap
+        Ubacio sam i matrice transformacije, ali ne izlaze dobro na stampi
+3.2.6.4 Imam funkcionalno stanje za K stap: tabela OK, memorija oslobodjena OK,
+        jedino crtez da se sredi
+3.2.6.2 Ubacio sam header <statika-matrice>
+//-------------------------------------------------------------------------
+3.2.6.1 Pri izboru stapova imamo podatke o alfa,I,F i reduk.duzinama
+3.2.6 Izgleda da sve radi kako treba.
+      Sredio sam IzborPoprecnogPreseka definitivno
+      Bag sa zamenjenim vrednostima je sredjen: bilo je zamenjeno u pozivanju novi_poprpresek
+      Pri izabranom stapu sad imamo prave podatke.
+
+3.2.5 Izbor stapova sa ispisom  karakteristika
+      Privremeno sam uveo deo strukture duz->tip, tj. tip stapa
+      ##Primecen i ispravljen bag pri IzboruPoprecnogPreseka/Materijala:
+        Bio je predugacak tekst za txt[18] ako je broj sa mnogo cifara i
+        dolazilo je do shuntavila i CRASH-a odmah nakon izbora.
+        Povecao sam na txt[20]-LOSE!!
+        Mora da bude maks.18 slova, u suprotnom funkcija PopupAddText sama stavlja \0
+        na 19.mesto i tu se ostatak slova izgubi u memoriji.
+      ##Zamenio sam negde I i F, primetio sam pri izboru, vidim da su zamenjene vrednosti
+3.2.4 Iscrtavanje gr.uslova stapova
+3.2.3 Ubacujem u opticaj i gru, trebace zarad iscrtavanja veza stapova
+3.2.2 Sredio sam bagche iz 3.2 gde pri preseku 2 stapa, delovi oba stapa dobiju
+      aktuelne karakteristike, umesto da ih svaki nasledi od svog stapa
+3.2 UNOS GREDA USPESAN!!!!
+/>-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-) >-)
+
+3.121 Ovde vrsim prebacivanje na prilagodjene verzije funkcija za podelu stapova,
+      koje dobijam prepravkom odgovarajucih iz headera geometrija-c:
+         NizDuzi * duzi_podeli_u_prestac(NizTacaka *niz)
+         Duz     * duz_podeli_u_t(Duz *d,Tacka *t)
+
+3.12 Zamenio sam kod funkcija za dijalog unosa materijala i poprecnog preseka
+     Prebacio sam inicijalizaciju vrednosti (ne i definiciju)glob.promenljivih
+     iz <statika-c> u _main(). MORA!!! Bag primecen u 3.1 je sad resen
+//------------------------------------------------
+//-----<dijalozi.h>:prelazak na novu verziju, 1.2, dovde je bila verzija 1.02
+//------------------------------------------------
+3.11 Zaboravio sam sta se ovde desavalo,
+     jer sam u medjuvremenu pravio sablon dijaloga, i tablicu u headeru dijalozi.
+     Idem na verziju 3.12, u kojoj cu samo da ubacim noviju verziju <dijalozi.h>
+3.1 Nastavljam od 3.05, jer nisam uspeo u 3.06
+    ##U programu uneti bar 1 pop.pres., izaci iz programa, ponovo pokrenuti
+      i pri pokusaju oslobadjanja memorije imam CRASH intercepted
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+3.06 Ovde treba konacno ubaciti i tip Greda u opticaj
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+3.05 **Promenio sam KOEF_TOLERANCIJE na 0.0001, jer je DBL_EPSILON bio uzrok greske u <jednaki>
+3.04.1 **Sredjen bag iz 3.04: Sada imam novitete u statika-grafika:
+         struct Crtez i funkciju CrtajVezu
+         Odsada ce i crtezi da dobiju svoje indekse
+3.04 **Dodat je deo za izbor granicnih uslova
+     ##Verzija je prsla pri kompilaciji, idem na podverziju
+3.03 **Dodajem mogucnost za promenu karakteristika stapa tokom unosa (nakon unosa duzi)
+       U funkciji Unos_stapova: nova funkcija: IzborPoprecnogPreseka
+       Nedovrsen posao, nastavljam u sledecoj verziji
+     #1 Ovde sam primetio da pri unosu prevelikog broja cifara u vecini dijaloga imam blokadu TI
+3.02 **Dodao sam InfoKarakteristikeStapa i obavestenja u Unos_stapa
+
+3.01 Odavde krecem sa pravljenjem funkcija za unos grede:
+     Unos_grede,
+     koju izvodim iz: Unos_duzi, Unos_duzi_ekr (njih ostavljam ovakve za druge programe)
+
+3.0  Ubacujem novi header:<statika-grafika.h>
+     Otkrio sam sprites, koje cu da koristim za crtanje zglobova i oslonaca
+     Uvozenje(vidi pocetak headera) iz .bin fajla, ikone nacrtane u programu CalcGS
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+2.7.1.
+     Statiku pokrecem pocev od verzije geometrije 2.7.1
+     Napravio sam <statika-c>, <statika-dijalozi.h>
