@@ -31,10 +31,16 @@ Functions specific to individual applications are located in separate archives o
 It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
 ### Applications
+*   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
+*   Beton
+*   Linija nivoa
+
 
 ### Function archives
 
+
 ### Dynamic libraries
+
 
 ## Operation manual
 Currently available version is an incomplete html version in serbian, as a [compiled .chm](https://github.com/gradjeivan/GradjeIvan/raw/main/Documentation/GradjeIvan%20Documentation.chm), but also accessible through [GradjeIvan Documentation.htm](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Content/GradjeIvan%20Documentation.htm#enroll-beta) in Documentation folder. 
