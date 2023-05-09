@@ -32,6 +32,7 @@ It is clear from the above that understanding the GradjeIvan API code is a condi
 
 Basic algorithm for each application is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf)
 
+
 ### Applications
 *   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
 *   Beton
