@@ -1,6 +1,6 @@
 # GradjeIvan
  
-A set of applications and libraries for texas Instruments programmable calculators
+A set of applications and libraries for Texas Instruments programmable calculators
 
 ## Table of contents
 * [Introduction](#introduction)
