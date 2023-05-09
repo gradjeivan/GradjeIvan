@@ -31,7 +31,7 @@ Functions specific to individual applications are located in separate archives o
 It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
 Basic algorithm for each application is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf)
-
+![Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf)
 
 ### Applications
 *   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
