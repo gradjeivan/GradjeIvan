@@ -6,9 +6,12 @@ A set of applications and libraries for Texas Instruments programmable calculato
 * [Introduction](#introduction)
 * [Technologies](#technologies)
 * [Applications and libraries](#applications-and-libraries)
-    * [Applications](#applications)
-    * [Function archives](#function-archives)
-    * [Dynamic libraries](#dynamic-libraries)
+    * [Main algorithm](#main-algorithm-description)
+    * [Structure of data](#structure-of-data)
+        * [Applications](#applications)
+        * [Function archives](#function-archives)
+        * [Dynamic libraries](#dynamic-libraries)
+* [Operation manual](#operation-manual)
 ## Introduction
 GradjeIvan is a set of applications for the Texas Instruments TI-89 and TI-Voyage calculators, created from the author's desire to facilitate uniform (boring) calculations related to problems in the field of statics, concrete and other fields of construction.
 
@@ -42,16 +45,16 @@ Functions specific to individual applications are located in separate archives o
 It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
 
-### Applications
+#### Applications
 *   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
 *   Beton
 *   Linija nivoa
 
 
-### Function archives
+#### Function archives
 
 
-### Dynamic libraries
+#### Dynamic libraries
 
 
 ## Operation manual
