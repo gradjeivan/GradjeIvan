@@ -23,13 +23,7 @@ The [TiEmu virtual calculator](http://lpg.ticalc.org/prj_tiemu/win32.html) (v.3.
 ![TIGCC SDK with TiEmu](https://github.com/gradjeivan/GradjeIvan/blob/main/TIGCC%20SDK%20and%20TiEmu.png)
 
 ## Applications and libraries
-The core programming code behind all GradjeIvan applications is located within the GradjeIvan API. This set of function archives (*.a) and dynamic libraries (*.dll) deals with the basic elements of each application, such as: graphical environment, menus, dialogs, drawing lines and points in a given scale, matrices, tabular display, etc. .
-
-The working principle can be compared to some kind of primitive object-oriented programming: each archive contains types and functions that deal with one group of related application elements. "Objects" are defined by structural types of variables, and "methods" by functions that have variables of that type as objects of their action. All "objects" of the same type that exist within the application are held in a single doubly linked list of these variables, accessible to each function through a global pointer of that type.
-
-Functions specific to individual applications are located in separate archives or dynamic libraries, in order to be used only within those applications that require these functions to work. Thus, for example, in the case of the GradjeIvan Statics application, such archives deal with the definition of types that describe bars and diagrams, their entry and modification, as well as the calculation that results from the entered data. Those archives are not needed for applications such as e.g. The level line, because it does not deal with that issue. However, basic functions, such as the functions listed above within the GradjeIvan API, are needed, because like most applications, it also needs menus, dialogs, tables, etc.
-It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
-
+### Main algorithm description
 Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf). 
 Below is the main algorithm, where green rectangle marks a spot where each functionality is triggered by calling its main function. It actually represents a place in algorithm for each selected menu entry by the user.
 
@@ -37,7 +31,15 @@ Below is the main algorithm, where green rectangle marks a spot where each funct
 
 We can list main functionalities of each application by going down through all menu entries. Some menu entries are made available to user only when some conditions are met (usually when user inputs necessary data).
 Below is the quick run through menu items available for new file in *Statika* application:
-![Statika_meni.gif]()
+![Statika_meni.gif](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Content/Statika/Help/GRI_PR_01_MENI.gif)
+
+### Structure of data
+The core programming code behind all GradjeIvan applications is located within the GradjeIvan API. This set of function archives (*.a) and dynamic libraries (*.dll) deals with the basic elements of each application, such as: graphical environment, menus, dialogs, drawing lines and points in a given scale, matrices, tabular display, etc. .
+
+The working principle can be compared to some kind of primitive object-oriented programming: each archive contains types and functions that deal with one group of related application elements. "Objects" are defined by structural types of variables, and "methods" by functions that have variables of that type as objects of their action. All "objects" of the same type that exist within the application are held in a single doubly linked list of these variables, accessible to each function through a global pointer of that type.
+
+Functions specific to individual applications are located in separate archives or dynamic libraries, in order to be used only within those applications that require these functions to work. Thus, for example, in the case of the GradjeIvan Statics application, such archives deal with the definition of types that describe bars and diagrams, their entry and modification, as well as the calculation that results from the entered data. Those archives are not needed for applications such as e.g. The level line, because it does not deal with that issue. However, basic functions, such as the functions listed above within the GradjeIvan API, are needed, because like most applications, it also needs menus, dialogs, tables, etc.
+It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
 
 ### Applications
