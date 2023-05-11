@@ -31,7 +31,7 @@ All GradjeIvan applications are based on the same core libraries. Main differenc
 [tabular presentation of data](), 
 [matrix calculations](), 
 [open/save/export the data from the application to calculator variable(file) so it can be used in normal calculator use mode](),... 
-...for which we use the same basic libraries loaded from dedicated .dlls developed to be used only while the functionality is needed. 
+...for which we use the same basic libraries loaded from dedicated function archives, or dynamic libraries developed to be used only while the functionality is needed. 
 TI calculators are limited by its internal memory, and can't hold there all libraries at the same time, which is the main reason for having approach like this.
 ### Main algorithm description
 Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf). 
