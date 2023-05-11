@@ -30,8 +30,15 @@ The working principle can be compared to some kind of primitive object-oriented 
 Functions specific to individual applications are located in separate archives or dynamic libraries, in order to be used only within those applications that require these functions to work. Thus, for example, in the case of the GradjeIvan Statics application, such archives deal with the definition of types that describe bars and diagrams, their entry and modification, as well as the calculation that results from the entered data. Those archives are not needed for applications such as e.g. The level line, because it does not deal with that issue. However, basic functions, such as the functions listed above within the GradjeIvan API, are needed, because like most applications, it also needs menus, dialogs, tables, etc.
 It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
-Basic algorithm for each application is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf)
-![Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.svg)
+Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf). 
+Below is the main algorithm, where green rectangle marks a spot where each functionality is triggered by calling its main function. It actually represents a place in algorithm for each selected menu entry by the user.
+
+![Documentation/Main function algorithm.svg](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.svg)
+
+We can list main functionalities of each application by going down through all menu entries. Some menu entries are made available to user only when some conditions are met (usually when user inputs necessary data).
+Below is the quick run through menu items available for new file in *Statika* application:
+![Statika_meni.gif]()
+
 
 ### Applications
 *   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
