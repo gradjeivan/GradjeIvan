@@ -26,9 +26,16 @@ The [TiEmu virtual calculator](http://lpg.ticalc.org/prj_tiemu/win32.html) (v.3.
 ![TIGCC SDK with TiEmu](https://github.com/gradjeivan/GradjeIvan/blob/main/TIGCC%20SDK%20and%20TiEmu.png)
 
 ## Applications and libraries
+All GradjeIvan applications are based on the same core libraries. Main difference between them is their subject matter (problem to be solved), but they all need to have possibilities of: 
+[graphical input](), 
+[tabular presentation of data](), 
+[matrix calculations](), 
+[open/save/export the data from the application to calculator variable(file) so it can be used in normal calculator use mode](),... 
+...for which we use the same basic libraries loaded from dedicated .dlls developed to be used only while the functionality is needed. 
+TI calculators are limited by its internal memory, and can't hold there all libraries at the same time, which is the main reason for having approach like this.
 ### Main algorithm description
 Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf). 
-Below is the main algorithm, where green rectangle marks a spot where each functionality is triggered by calling its main function. It actually represents a place in algorithm for each selected menu entry by the user.
+Below is the main algorithm, where green rectangle marks a spot from where each functionality is triggered by calling its main function. It actually represents a place in algorithm for each selected menu entry by the user.
 
 ![Documentation/Main function algorithm.svg](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.svg)
 
