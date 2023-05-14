@@ -11,6 +11,7 @@ A set of applications and libraries for Texas Instruments programmable calculato
         * [Applications](#applications)
         * [Function archives](#function-archives)
         * [Dynamic libraries](#dynamic-libraries)
+* [Folder organization](#folder-organization)
 * [Operation manual](#operation-manual)
 ## Introduction
 GradjeIvan is a set of applications for the Texas Instruments TI-89 and TI-Voyage calculators, created from the author's desire to facilitate uniform (boring) calculations related to problems in the field of statics, concrete and other fields of construction.
@@ -33,10 +34,10 @@ All GradjeIvan applications are based on the same core libraries. Main differenc
 [open/save/export the data from the application to calculator variable(file) so it can be used in normal calculator use mode](),... For these features all applications use the same basic libraries loaded from dedicated function archives, or dynamic libraries developed to be used only while the functionality is needed. Those which do not exist in out-of-the-box ready libraries in TIGCC. 
 TI calculators are limited by its internal memory, and can't hold there all libraries at the same time, which is the main reason for having approach like this.
 ### Main algorithm description
-Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.pdf). 
+Basic algorithm for each application, with links to algorithms describing specific functionalities is presented in [Documentation/Main function algorithm.pdf](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Common/Diagrams/Main%20function%20algorithm/Main%20function%20algorithm.pdf). 
 Below is the main algorithm, where green rectangle marks a spot from where each functionality is triggered by calling its main function. It actually represents a place in algorithm for each selected menu entry by the user.
 
-![Documentation/Main function algorithm.svg](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Main%20function%20algorithm.svg)
+![Documentation/Main function algorithm.svg](https://github.com/gradjeivan/GradjeIvan/blob/main/Documentation/Common/Diagrams/Main%20function%20algorithm/Main%20function%20algorithm.svg)
 
 We can list main functionalities of each application by going down through all menu entries. Some menu entries are made available to user only when some conditions are met (usually when user inputs necessary data).
 Below is the quick run through menu items available for new file in *Statika* application:
@@ -51,16 +52,18 @@ Functions specific to individual applications are located in separate archives o
 It is clear from the above that understanding the GradjeIvan API code is a condition for understanding the complete code of any of the GradjeIvan applications.
 
 
-#### Applications
+### Applications
 *   [Statika](https://github.com/gradjeivan/GradjeIvan/blob/main/Aplikacije/Statika/main.c)
 *   Beton
 *   Linija nivoa
 
 
-#### Function archives
+### Function archives
 
 
-#### Dynamic libraries
+### Dynamic libraries
+
+## Folder organization
 
 
 ## Operation manual
